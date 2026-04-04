@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BetterIsMore — Excellence commerciale B2B</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,700;0,9..40,800;1,9..40,700&family=Inter:wght@300;400;500&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#0A2540;--accent2:#1466C0;--gold:#C9A84C;
+  --ink:#08090A;--ink2:#3A3C40;--ink3:#7A7D85;--ink4:#B8BAC0;
+  --bg:#F7F7F5;--bg2:#EEECEA;--white:#FFFFFF;
+  --line:rgba(8,9,10,0.09);
+  --ff-display:'DM Sans',sans-serif;
+  --ff-body:'Inter',sans-serif;
+}
+body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:60px;background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+.logo{font-family:var(--ff-display);font-weight:800;font-size:16px;letter-spacing:-0.5px;color:var(--accent);text-decoration:none;flex-shrink:0}
+.logo-dot{color:var(--accent2)}
+.hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-desktop{display:none}
+.nav-mobile{display:none;flex-direction:column;background:var(--white);border-bottom:1px solid var(--line);padding:16px 20px;gap:4px;position:sticky;top:60px;z-index:99}
+.nav-mobile.open{display:flex}
+.nav-mobile a{font-size:14px;color:var(--ink2);text-decoration:none;padding:10px 0;border-bottom:1px solid var(--line);font-weight:400}
+.nav-mobile a:last-of-type{border-bottom:none}
+.nav-mobile-btn{margin-top:8px;background:var(--accent);color:#fff;padding:12px 20px;border-radius:4px;font-size:14px;font-weight:500;text-align:center;cursor:pointer;border:none;font-family:var(--ff-body);width:100%}
+.nav-mobile-btn:hover{background:var(--accent2)}
+
+.row{display:flex;flex-direction:column;border-bottom:1px solid var(--line)}
+.cell-dark{background:var(--accent);padding:48px 20px}
+.cell-light{background:var(--white);padding:48px 20px}
+.cell-muted{background:var(--bg2);padding:48px 20px}
+.cell-bg{background:var(--bg);padding:48px 20px}
+
+.eyebrow{font-size:10px;letter-spacing:3px;font-weight:500;color:var(--accent2);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--accent2)}
+.section-tag{font-size:10px;letter-spacing:3px;color:var(--ink4);text-transform:uppercase;font-weight:500;margin-bottom:10px}
+
+h1{font-family:var(--ff-display);font-size:clamp(32px,6vw,62px);font-weight:800;line-height:1.04;letter-spacing:-2px;color:var(--accent);margin-bottom:20px}
+h1 em{color:var(--accent2);font-style:italic}
+.hero-sub{font-size:15px;color:var(--ink2);line-height:1.75;font-weight:300;margin-bottom:32px}
+.btn-main{background:var(--accent);color:#fff;padding:13px 24px;border-radius:4px;font-size:14px;font-weight:500;border:none;cursor:pointer;font-family:var(--ff-body);transition:background .2s;width:100%;text-align:center;display:inline-block;text-decoration:none}
+.btn-main:hover{background:var(--accent2)}
+.btn-link{color:var(--ink3);font-size:13px;display:flex;align-items:center;justify-content:center;gap:5px;border:none;background:none;cursor:pointer;font-family:var(--ff-body);transition:color .2s;width:100%;padding:10px 0;text-decoration:none}
+.btn-link:hover{color:var(--ink)}
+.hero-actions{display:flex;flex-direction:column;gap:8px}
+
+.kpi-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);padding:6px 14px;border-radius:20px;margin-bottom:32px}
+.kpi-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.kpi-tag span{font-size:10px;color:rgba(255,255,255,0.55);letter-spacing:1px;text-transform:uppercase}
+.kpi-stack{display:flex;flex-direction:column}
+.kpi{border-top:1px solid rgba(255,255,255,0.07);padding:16px 0}
+.kpi:first-child{border-top:none;padding-top:0}
+.kpi-num{font-family:var(--ff-display);font-size:40px;font-weight:800;color:#fff;line-height:1;letter-spacing:-2px;margin-bottom:4px}
+.kpi-label{font-size:11px;color:rgba(255,255,255,0.4);font-weight:300}
+
+.manifesto{font-family:var(--ff-display);font-size:clamp(17px,5vw,24px);font-weight:700;line-height:1.35;letter-spacing:-0.3px;color:var(--accent);margin-bottom:24px}
+.manifesto em{color:var(--accent2);font-style:italic}
+.points{display:flex;flex-direction:column}
+.point{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--line);align-items:flex-start}
+.point:first-child{border-top:none;padding-top:0}
+.pn{font-family:var(--ff-display);font-size:18px;font-weight:800;color:rgba(8,9,10,0.07);flex-shrink:0;width:20px;line-height:1}
+.pt{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.pd{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.6}
+
+.avatar-wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
+.avatar{width:130px;height:130px;border-radius:50%;border:3px solid rgba(255,255,255,0.12);background:#1A3A5C;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.aname{font-family:var(--ff-display);font-size:16px;font-weight:800;color:#fff;text-align:center;margin-bottom:3px}
+.arole{font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;text-align:center}
+.aquote{border-top:1px solid rgba(255,255,255,0.07);padding-top:16px;width:100%;text-align:center}
+.aquote p{font-size:12px;color:rgba(255,255,255,0.45);font-style:italic;font-weight:300;line-height:1.7}
+
+.expertises-section{padding:48px 20px;border-bottom:1px solid var(--line);background:var(--bg)}
+.section-head{margin-bottom:32px}
+.exp-h2{font-family:var(--ff-display);font-size:clamp(24px,6vw,36px);font-weight:800;letter-spacing:-1px;color:var(--accent);margin-top:6px}
+.flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.flip-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.flip-wrap{height:160px;perspective:900px;cursor:pointer}
+.flip-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.flip-wrap:hover .flip-inner,.flip-wrap.flipped .flip-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:6px;padding:16px;overflow:hidden}
+.front{background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+.back{background:var(--accent);transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:space-between}
+.front-num{font-family:var(--ff-display);font-size:10px;letter-spacing:2px;color:var(--ink4);font-weight:700}
+.front-title{font-family:var(--ff-display);font-size:13px;font-weight:800;color:var(--accent);line-height:1.2;flex:1;display:flex;align-items:center}
+.front-hint{font-size:10px;color:var(--ink4);font-weight:300}
+.back-tags{display:flex;flex-direction:column;gap:4px;flex:1;justify-content:center}
+.back-tag{font-size:10px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.4;display:flex;gap:6px;align-items:flex-start}
+.back-tag::before{content:'→';color:var(--accent2);flex-shrink:0;font-size:9px;margin-top:1px}
+.back-cta{font-size:9px;color:rgba(255,255,255,0.25);font-weight:300;border-top:1px solid rgba(255,255,255,0.07);padding-top:6px;margin-top:6px}
+
+.proof-steps{display:flex;flex-direction:column}
+.proof-step{display:flex;gap:14px;padding:16px 0;border-top:1px solid rgba(255,255,255,0.06)}
+.proof-step:first-child{border-top:none;padding-top:0}
+.ps-n{font-family:var(--ff-display);font-size:22px;font-weight:800;color:rgba(255,255,255,0.1);line-height:1;flex-shrink:0;width:24px}
+.ps-title{font-size:14px;font-weight:500;color:#fff;margin-bottom:2px}
+.ps-text{font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.6}
+.proof-title{font-family:var(--ff-display);font-size:clamp(22px,6vw,34px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:32px}
+.proof-title em{color:var(--gold);font-style:italic}
+.promise-list{display:flex;flex-direction:column}
+.promise{padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
+.promise:first-child{padding-top:0}
+.promise:last-child{border-bottom:none}
+.p-icon{width:28px;height:28px;background:var(--white);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--line)}
+.p-icon svg{width:12px;height:12px;stroke:var(--accent2);fill:none;stroke-width:1.5}
+.p-text{font-size:13px;color:var(--ink2);line-height:1.6;font-weight:300}
+.p-text strong{font-weight:500;color:var(--ink)}
+
+.cta-band{padding:64px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--white);border-bottom:1px solid var(--line)}
+.cta-pre{font-size:10px;letter-spacing:3px;color:var(--ink4);text-transform:uppercase;font-weight:500;margin-bottom:16px}
+.cta-h{font-family:var(--ff-display);font-size:clamp(28px,8vw,50px);font-weight:800;letter-spacing:-1.5px;color:var(--accent);line-height:1.05;margin-bottom:14px}
+.cta-h em{color:var(--accent2);font-style:italic}
+.cta-sub{font-size:14px;color:var(--ink3);font-weight:300;margin-bottom:32px;line-height:1.75;max-width:340px}
+.cta-actions{display:flex;flex-direction:column;gap:8px;width:100%;max-width:320px}
+
+footer{padding:28px 20px;display:flex;align-items:center;justify-content:space-between;background:var(--white);border-top:1px solid var(--line)}
+.footer-logo{font-family:var(--ff-display);font-weight:800;font-size:14px;color:var(--ink3);text-decoration:none}
+.footer-logo .dot{color:var(--accent2)}
+.footer-copy{font-size:11px;color:var(--ink4);font-weight:300}
+
+@media(min-width:768px){
+  nav{padding:0 56px;height:68px}
+  .hamburger{display:none}
+  .nav-desktop{display:flex;align-items:center;gap:32px}
+  .nav-desktop a{font-size:13px;color:var(--ink3);text-decoration:none;transition:color .2s}
+  .nav-desktop a:hover{color:var(--ink)}
+  .nav-desktop-btn{background:var(--accent);color:#fff;padding:9px 22px;border-radius:4px;font-size:13px;font-weight:500;border:none;cursor:pointer;font-family:var(--ff-body);transition:background .2s}
+  .nav-desktop-btn:hover{background:var(--accent2)}
+  .row{flex-direction:row}
+  .row>*{flex:1}
+  .cell-dark,.cell-light,.cell-muted,.cell-bg{padding:72px 56px}
+  .btn-main,.btn-link{width:auto}
+  .hero-actions{flex-direction:row}
+  .flip-grid{grid-template-columns:repeat(4,1fr);gap:10px}
+  .flip-grid-2{grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+  .flip-wrap{height:172px}
+  .front-title{font-size:clamp(12px,1.3vw,15px)}
+  .expertises-section{padding:80px 56px}
+  .cta-band{padding:88px 56px}
+  .cta-actions{flex-direction:row;width:auto;max-width:none}
+  footer{padding:32px 56px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">BetterIs<span class="logo-dot">More</span></a>
+  <div class="nav-desktop">
+    <a href="#expertises">Expertises</a>
+    <a href="#approche">Approche</a>
+    <a href="#contact">Références</a>
+    <a href="#blog">Blog</a>
+    <button class="nav-desktop-btn" onclick="window.location.href='mailto:contact@betterismore.eu'">Prendre rendez-vous</button>
+  </div>
+  <button class="hamburger" id="hbg" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#expertises">Expertises</a>
+  <a href="#approche">Approche</a>
+  <a href="#contact">Références</a>
+  <a href="#blog">Blog</a>
+  <button class="nav-mobile-btn" onclick="window.location.href='mailto:contact@betterismore.eu'">Prendre rendez-vous</button>
+</div>
+
+<div class="row">
+  <div class="cell-bg" style="display:flex;flex-direction:column;justify-content:center">
+    <p class="eyebrow">Excellence commerciale B2B</p>
+    <h1>Votre potentiel<br><em>enfin</em><br>en résultats</h1>
+    <p class="hero-sub">Nous accompagnons les directions commerciales qui veulent aller plus loin — avec des méthodes éprouvées et des résultats mesurables.</p>
+    <div class="hero-actions">
+      <a class="btn-main" href="/cdn-cgi/l/email-protection#7d1e1213091c1e093d1f180909180f140e10120f18531808">Discutons de votre enjeu ↗</a>
+      <a class="btn-link" href="#expertises">Nos expertises →</a>
+    </div>
+  </div>
+  <div class="cell-dark" style="display:flex;flex-direction:column;justify-content:space-between">
+    <div style="font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:20px">La méthode exclusive</div>
+    <p style="font-family:var(--ff-display);font-size:clamp(17px,2vw,22px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:28px;letter-spacing:-0.5px">80% des équipes commerciales n'exploitent pas <em style="color:var(--gold);font-style:italic">la moitié</em> de leur potentiel</p>
+    <div style="display:flex;flex-direction:column">
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,0.06)">
+        <span style="font-family:var(--ff-display);font-size:28px;font-weight:800;color:var(--accent2);width:32px;flex-shrink:0;line-height:1">A</span>
+        <div><p style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Analyser</p><p style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.5">Diagnostiquer sans filtre votre situation réelle</p></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,0.06)">
+        <span style="font-family:var(--ff-display);font-size:28px;font-weight:800;color:var(--accent2);width:32px;flex-shrink:0;line-height:1">D</span>
+        <div><p style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Décider</p><p style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.5">Prioriser les leviers à fort impact immédiat</p></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,0.06)">
+        <span style="font-family:var(--ff-display);font-size:28px;font-weight:800;color:var(--accent2);width:32px;flex-shrink:0;line-height:1">O</span>
+        <div><p style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Outiller</p><p style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.5">Aligner outils, processus et équipes</p></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,0.06)">
+        <span style="font-family:var(--ff-display);font-size:28px;font-weight:800;color:var(--accent2);width:32px;flex-shrink:0;line-height:1">P</span>
+        <div><p style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Performer</p><p style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.5">Exécuter avec rigueur et mesurer chaque résultat</p></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,0.06)">
+        <span style="font-family:var(--ff-display);font-size:28px;font-weight:800;color:var(--accent2);width:32px;flex-shrink:0;line-height:1">T</span>
+        <div><p style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Transformer</p><p style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.5">Ancrer durablement la culture de performance</p></div>
+      </div>
+    </div>
+    <p style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);font-size:11px;color:rgba(255,255,255,0.3);font-style:italic">— <strong style="color:rgba(255,255,255,0.6);font-style:normal">Lounas Aliouche</strong>, fondateur BetterIsMore</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="cell-dark" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <!-- Remplacez ce SVG par : <img src="photo-lounas.jpg" alt="Lounas Aliouche"> -->
+        <svg width="64" height="64" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="32" r="18" fill="rgba(255,255,255,0.15)"/>
+          <ellipse cx="40" cy="74" rx="28" ry="18" fill="rgba(255,255,255,0.1)"/>
+        </svg>
+      </div>
+      <div>
+        <p class="aname">Lounas Aliouche</p>
+        <p class="arole">Fondateur — BetterIsMore</p>
+      </div>
+      <div class="aquote">
+        <p>"Je me présente comme quelqu'un qui vous dit ce que vous avez besoin d'entendre — pas ce que vous voulez entendre."</p>
+      </div>
+    </div>
+  </div>
+  <div class="cell-light" style="display:flex;flex-direction:column;justify-content:center">
+    <p class="section-tag">Notre conviction</p>
+    <p class="manifesto">La performance commerciale ne se décrète pas. Elle se construit — avec les bons outils, les bonnes personnes, et <em>une approche sans complaisance.</em></p>
+    <div class="points">
+      <div class="point"><span class="pn">1</span><div><p class="pt">Experts du terrain B2B</p><p class="pd">Grands comptes, ventes complexes, réseaux internationaux.</p></div></div>
+      <div class="point"><span class="pn">2</span><div><p class="pt">Résultats mesurables</p><p class="pd">Chaque engagement défini avec des KPIs clairs dès le départ.</p></div></div>
+      <div class="point"><span class="pn">3</span><div><p class="pt">Honnêteté sans filtre</p><p class="pd">On vous dit ce qui fonctionne — pas ce que vous voulez entendre.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<section class="expertises-section" id="expertises">
+  <div class="section-head">
+    <p class="section-tag">Nos expertises</p>
+    <p class="exp-h2">7 leviers de croissance</p>
+  </div>
+  <div class="flip-grid">
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
+      <div class="face front"><span class="front-num">01</span><span class="front-title">CRM &amp; Pilotage</span><span class="front-hint">Toucher / survoler</span></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Adoption et exploitation optimale</span><span class="back-tag">Stratégie et pilotage intégrés</span><span class="back-tag">Taux de conversion en hausse</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+    </div></div>
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
+      <div class="face front"><span class="front-num">02</span><span class="front-title">Équipe commerciale</span><span class="front-hint">Toucher / survoler</span></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Acquisition de nouvelles affaires</span><span class="back-tag">Qualification et approche marché</span><span class="back-tag">Performance durable</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+    </div></div>
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
+      <div class="face front"><span class="front-num">03</span><span class="front-title">Grands Comptes</span><span class="front-hint">Toucher / survoler</span></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Relation de parité avec les KAM</span><span class="back-tag">Potentiel de croissance quantifié</span><span class="back-tag">Surface de contact élargie</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+    </div></div>
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
+      <div class="face front"><span class="front-num">04</span><span class="front-title">Présence inter&shy;nationale</span><span class="front-hint">Toucher / survoler</span></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Collaboration structurelle impactante</span><span class="back-tag">Partage de bonnes pratiques</span><span class="back-tag">CA international en hausse</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+    </div></div>
+  </div>
+  <div class="flip-grid-2">
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
+      <div class="face front"><span class="front-num">05</span><span class="front-title">Rémunération commerciale</span><span class="front-hint">Toucher / survoler</span></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Aligné sur la stratégie</span><span class="back-tag">Impact comportemental mesuré</span><span class="back-tag">Résultats accrus</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+    </div></div>
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
+      <div class="face front"><span class="front-num">06</span><span class="front-title">Évolutions de marché</span><span class="front-hint">Toucher / survoler</span></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Valeur ajoutée différenciante</span><span class="back-tag">Stratégie adaptée</span><span class="back-tag">Parts de marché défendues</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+    </div></div>
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
+      <div class="face front"><span class="front-num">07</span><span class="front-title">Stratégie partenaires</span><span class="front-hint">Toucher / survoler</span></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Potentiel réseau adressé</span><span class="back-tag">Pilotage de l'écosystème</span><span class="back-tag">Business prévisible</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+    </div></div>
+  </div>
+</section>
+
+<div class="row" id="approche">
+  <div class="cell-dark" style="display:flex;flex-direction:column;justify-content:center">
+    <p class="proof-title">Diagnostic d'abord<br><em>Résultats</em> ensuite</p>
+    <div class="proof-steps">
+      <div class="proof-step"><span class="ps-n">1</span><div><p class="ps-title">Diagnostic sans filtre</p><p class="ps-text">Identifier les vrais leviers — pas ceux qu'on aime entendre.</p></div></div>
+      <div class="proof-step"><span class="ps-n">2</span><div><p class="ps-title">Plan d'action sur-mesure</p><p class="ps-text">Outils, processus et formation adaptés à votre réalité terrain.</p></div></div>
+      <div class="proof-step"><span class="ps-n">3</span><div><p class="ps-title">Exécution accompagnée</p><p class="ps-text">On reste impliqués jusqu'aux résultats — pas jusqu'au livrable.</p></div></div>
+      <div class="proof-step"><span class="ps-n">4</span><div><p class="ps-title">Mesure & ajustement</p><p class="ps-text">KPIs clairs pour piloter la performance dans la durée.</p></div></div>
+    </div>
+  </div>
+  <div class="cell-muted" style="display:flex;flex-direction:column;justify-content:center">
+    <p class="section-tag" style="margin-bottom:24px">Pourquoi BetterIsMore</p>
+    <div class="promise-list">
+      <div class="promise"><div class="p-icon"><svg viewBox="0 0 13 13"><polyline points="2,6.5 5,9.5 11,3"/></svg></div><p class="p-text"><strong>Pas de théorie.</strong> Des recommandations actionnables dès le premier échange.</p></div>
+      <div class="promise"><div class="p-icon"><svg viewBox="0 0 13 13"><circle cx="6.5" cy="6.5" r="4.5"/><line x1="6.5" y1="4" x2="6.5" y2="6.5"/><line x1="6.5" y1="6.5" x2="8.5" y2="8.5"/></svg></div><p class="p-text"><strong>Résultats mesurables.</strong> Chaque engagement défini avec des indicateurs clairs.</p></div>
+      <div class="promise"><div class="p-icon"><svg viewBox="0 0 13 13"><rect x="2" y="2" width="9" height="9" rx="1.5"/><line x1="5" y1="6.5" x2="8" y2="6.5"/><line x1="6.5" y1="5" x2="6.5" y2="8"/></svg></div><p class="p-text"><strong>Expertise B2B.</strong> Grands comptes, ventes complexes, réseaux internationaux.</p></div>
+      <div class="promise"><div class="p-icon"><svg viewBox="0 0 13 13"><path d="M6.5 2 L11 4.5 L11 8.5 L6.5 11 L2 8.5 L2 4.5 Z" stroke-linejoin="round"/></svg></div><p class="p-text"><strong>Approche honnête.</strong> On vous dit ce qui fonctionne — pas ce que vous voulez entendre.</p></div>
+    </div>
+  </div>
+</div>
+
+<section class="cta-band" id="contact">
+  <p class="cta-pre">Passez à l'action</p>
+  <p class="cta-h">Votre prochain levier de croissance est <em>déjà là</em></p>
+  <p class="cta-sub">Un premier échange de 30 minutes pour identifier ensemble ce qui bloque — et comment le débloquer.</p>
+  <div class="cta-actions">
+    <a class="btn-main" href="/cdn-cgi/l/email-protection#8eede1e0faefedfaceecebfafaebfce7fde3e1fceba0ebfb">Réserver un créneau gratuit ↗</a>
+    <a class="btn-link" href="https://www.betterismore.eu/fr/">Voir nos références →</a>
+  </div>
+</section>
+
+<footer>
+  <a class="footer-logo" href="#">BetterIs<span class="dot">More</span></a>
+  <p class="footer-copy">© 2025 BetterIsMore — Excellence commerciale B2B</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const hbg = document.getElementById('hbg');
+const mob = document.getElementById('nav-mobile');
+hbg.addEventListener('click', () => {
+  hbg.classList.toggle('open');
+  mob.classList.toggle('open');
+});
+document.querySelec
