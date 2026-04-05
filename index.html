@@ -33,7 +33,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px
 .nav-mobile-btn{margin-top:8px;background:var(--accent);color:#fff;padding:12px 20px;border-radius:4px;font-size:14px;font-weight:500;text-align:center;cursor:pointer;border:none;font-family:var(--ff-body);width:100%}
 .nav-mobile-btn:hover{background:var(--accent2)}
 
-.row{display:flex;flex-direction:column;border-bottom:1px solid var(--line)}
+.row{display:flex;flex-direction:column}
 .cell-dark{background:var(--accent);padding:48px 20px}
 .cell-light{background:var(--white);padding:48px 20px}
 .cell-muted{background:var(--bg2);padding:48px 20px}
@@ -83,6 +83,7 @@ h1 em{color:var(--accent2);font-style:italic}
 .exp-h2{font-family:var(--ff-display);font-size:clamp(24px,6vw,36px);font-weight:800;letter-spacing:-1px;color:var(--accent);margin-top:6px}
 .flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .flip-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.flip-grid-2>.flip-wrap:last-child:nth-child(odd){grid-column:1/-1}
 .flip-wrap{height:160px;perspective:900px;cursor:pointer}
 .flip-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.4,0,.2,1)}
 .flip-wrap:hover .flip-inner,.flip-wrap.flipped .flip-inner{transform:rotateY(180deg)}
@@ -93,9 +94,9 @@ h1 em{color:var(--accent2);font-style:italic}
 .front-title{font-family:var(--ff-display);font-size:13px;font-weight:800;color:var(--accent);line-height:1.2;flex:1;display:flex;align-items:center}
 .front-hint{font-size:10px;color:var(--ink4);font-weight:300}
 .back-tags{display:flex;flex-direction:column;gap:4px;flex:1;justify-content:center}
-.back-tag{font-size:10px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.4;display:flex;gap:6px;align-items:flex-start}
+.back-tag{font-size:12px;color:rgba(255,255,255,0.75);font-weight:400;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
 .back-tag::before{content:'→';color:var(--accent2);flex-shrink:0;font-size:9px;margin-top:1px}
-.back-cta{font-size:9px;color:rgba(255,255,255,0.25);font-weight:300;border-top:1px solid rgba(255,255,255,0.07);padding-top:6px;margin-top:6px}
+
 
 .proof-steps{display:flex;flex-direction:column}
 .proof-step{display:flex;gap:14px;padding:16px 0;border-top:1px solid rgba(255,255,255,0.06)}
@@ -134,7 +135,7 @@ footer{padding:28px 20px;display:flex;align-items:center;justify-content:space-b
   .nav-desktop a:hover{color:var(--ink)}
   .nav-desktop-btn{background:var(--accent);color:#fff;padding:9px 22px;border-radius:4px;font-size:13px;font-weight:500;border:none;cursor:pointer;font-family:var(--ff-body);transition:background .2s}
   .nav-desktop-btn:hover{background:var(--accent2)}
-  .row{flex-direction:row}
+  .row{flex-direction:row;border-bottom:1px solid var(--line)}
   .row>*{flex:1}
   .cell-dark,.cell-light,.cell-muted,.cell-bg{padding:72px 56px}
   .btn-main,.btn-link{width:auto}
@@ -148,6 +149,43 @@ footer{padding:28px 20px;display:flex;align-items:center;justify-content:space-b
   .cta-actions{flex-direction:row;width:auto;max-width:none}
   footer{padding:32px 56px}
 }
+
+
+
+
+
+
+
+
+
+/* ── Curseur custom ── */
+body { cursor: none !important; }
+a, button, .flip-wrap { cursor: none !important; }
+#cdot {
+  position: fixed;
+  left: -20px; top: -20px;
+  width: 10px; height: 10px;
+  background: #1466C0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .2s ease, height .2s ease, background .2s ease;
+}
+#cring {
+  position: fixed;
+  left: -20px; top: -20px;
+  width: 34px; height: 34px;
+  border: 1.5px solid #1466C0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
+  transition: width .3s ease, height .3s ease, opacity .25s ease;
+}
+#cdot.h { width: 22px; height: 22px; background: #C9A84C; }
+#cring.h { opacity: 0; width: 0; height: 0; }
 </style>
 </head>
 <body>
@@ -251,33 +289,33 @@ footer{padding:28px 20px;display:flex;align-items:center;justify-content:space-b
   <div class="flip-grid">
     <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
       <div class="face front"><span class="front-num">01</span><span class="front-title">CRM &amp; Pilotage</span><span class="front-hint">Toucher / survoler</span></div>
-      <div class="face back"><div class="back-tags"><span class="back-tag">Adoption et exploitation optimale</span><span class="back-tag">Stratégie et pilotage intégrés</span><span class="back-tag">Taux de conversion en hausse</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Adoption et exploitation optimale</span><span class="back-tag">Stratégie et pilotage intégrés</span><span class="back-tag">Taux de conversion en hausse</span></div></div>
     </div></div>
     <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
       <div class="face front"><span class="front-num">02</span><span class="front-title">Équipe commerciale</span><span class="front-hint">Toucher / survoler</span></div>
-      <div class="face back"><div class="back-tags"><span class="back-tag">Acquisition de nouvelles affaires</span><span class="back-tag">Qualification et approche marché</span><span class="back-tag">Performance durable</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Acquisition de nouvelles affaires</span><span class="back-tag">Qualification et approche marché</span><span class="back-tag">Performance durable</span></div></div>
     </div></div>
     <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
       <div class="face front"><span class="front-num">03</span><span class="front-title">Grands Comptes</span><span class="front-hint">Toucher / survoler</span></div>
-      <div class="face back"><div class="back-tags"><span class="back-tag">Relation de parité avec les KAM</span><span class="back-tag">Potentiel de croissance quantifié</span><span class="back-tag">Surface de contact élargie</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Relation de parité avec les KAM</span><span class="back-tag">Potentiel de croissance quantifié</span><span class="back-tag">Surface de contact élargie</span></div></div>
     </div></div>
     <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
       <div class="face front"><span class="front-num">04</span><span class="front-title">Présence inter&shy;nationale</span><span class="front-hint">Toucher / survoler</span></div>
-      <div class="face back"><div class="back-tags"><span class="back-tag">Collaboration structurelle impactante</span><span class="back-tag">Partage de bonnes pratiques</span><span class="back-tag">CA international en hausse</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Collaboration structurelle impactante</span><span class="back-tag">Partage de bonnes pratiques</span><span class="back-tag">CA international en hausse</span></div></div>
     </div></div>
   </div>
   <div class="flip-grid-2">
     <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
       <div class="face front"><span class="front-num">05</span><span class="front-title">Rémunération commerciale</span><span class="front-hint">Toucher / survoler</span></div>
-      <div class="face back"><div class="back-tags"><span class="back-tag">Aligné sur la stratégie</span><span class="back-tag">Impact comportemental mesuré</span><span class="back-tag">Résultats accrus</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Aligné sur la stratégie</span><span class="back-tag">Impact comportemental mesuré</span><span class="back-tag">Résultats accrus</span></div></div>
     </div></div>
     <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
       <div class="face front"><span class="front-num">06</span><span class="front-title">Évolutions de marché</span><span class="front-hint">Toucher / survoler</span></div>
-      <div class="face back"><div class="back-tags"><span class="back-tag">Valeur ajoutée différenciante</span><span class="back-tag">Stratégie adaptée</span><span class="back-tag">Parts de marché défendues</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Valeur ajoutée différenciante</span><span class="back-tag">Stratégie adaptée</span><span class="back-tag">Parts de marché défendues</span></div></div>
     </div></div>
     <div class="flip-wrap" onclick="this.classList.toggle('flipped')"><div class="flip-inner">
       <div class="face front"><span class="front-num">07</span><span class="front-title">Stratégie partenaires</span><span class="front-hint">Toucher / survoler</span></div>
-      <div class="face back"><div class="back-tags"><span class="back-tag">Potentiel réseau adressé</span><span class="back-tag">Pilotage de l'écosystème</span><span class="back-tag">Business prévisible</span></div><p class="back-cta">Prenez rendez-vous →</p></div>
+      <div class="face back"><div class="back-tags"><span class="back-tag">Potentiel réseau adressé</span><span class="back-tag">Pilotage de l'écosystème</span><span class="back-tag">Business prévisible</span></div></div>
     </div></div>
   </div>
 </section>
@@ -318,11 +356,33 @@ footer{padding:28px 20px;display:flex;align-items:center;justify-content:space-b
   <p class="footer-copy">© 2025 BetterIsMore — Excellence commerciale B2B</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const hbg = document.getElementById('hbg');
-const mob = document.getElementById('nav-mobile');
-hbg.addEventListener('click', () => {
+<div id="cdot"></div>
+<div id="cring"></div>
+<script>
+var d = document.getElementById('cdot');
+var r = document.getElementById('cring');
+document.addEventListener('mousemove', function(e) {
+  d.style.left = e.clientX + 'px';
+  d.style.top  = e.clientY + 'px';
+  r.style.left = e.clientX + 'px';
+  r.style.top  = e.clientY + 'px';
+});
+document.querySelectorAll('a,button,.flip-wrap').forEach(function(el) {
+  el.addEventListener('mouseenter', function() { d.classList.add('h'); r.classList.add('h'); });
+  el.addEventListener('mouseleave', function() { d.classList.remove('h'); r.classList.remove('h'); });
+});
+var hbg = document.getElementById('hbg');
+var mob = document.getElementById('nav-mobile');
+hbg.addEventListener('click', function() {
   hbg.classList.toggle('open');
   mob.classList.toggle('open');
 });
-document.querySelec
+document.querySelectorAll('.nav-mobile a, .nav-mobile-btn').forEach(function(el) {
+  el.addEventListener('click', function() {
+    hbg.classList.remove('open');
+    mob.classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
