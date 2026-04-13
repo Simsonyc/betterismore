@@ -253,6 +253,11 @@ footer{padding:28px 56px}
   .ap-logos{padding:56px 56px}
   .ap-cta{padding:88px 56px}
 }
+
+@media(hover:none),(-moz-touch-enabled:1),(pointer:coarse){
+  #cdot,#cring{display:none!important}
+  body,a,button,.fw{cursor:auto!important}
+}
 </style>
 </head>
 <body>
@@ -424,13 +429,15 @@ footer{padding:28px 56px}
 <div id="cdot"></div>
 <div id="cring"></div>
 <script>(function(){
+var isTouch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
 var cd=document.getElementById('cdot'),cr=document.getElementById('cring');
+if(isTouch){cd.style.display='none';cr.style.display='none';return;}
 document.addEventListener('mousemove',function(e){cd.style.left=e.clientX+'px';cd.style.top=e.clientY+'px';cr.style.left=e.clientX+'px';cr.style.top=e.clientY+'px';});
 document.querySelectorAll('a,button').forEach(function(x){x.addEventListener('mouseenter',function(){cd.classList.add('h');cr.classList.add('h');});x.addEventListener('mouseleave',function(){cd.classList.remove('h');cr.classList.remove('h');});});
 var hbg=document.getElementById('hbg'),mob=document.getElementById('nav-mobile');
 hbg.addEventListener('click',function(){hbg.classList.toggle('open');mob.classList.toggle('open');});
-document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};
-})();
-</script>
+document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});
+window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};
+})();</script>
 </body>
 </html>

@@ -206,6 +206,11 @@ footer{padding:28px 56px}
   .nl-submit{width:auto}
   .nl-content{padding:72px 56px}
 }
+
+@media(hover:none),(-moz-touch-enabled:1),(pointer:coarse){
+  #cdot,#cring{display:none!important}
+  body,a,button,.fw{cursor:auto!important}
+}
 </style>
 </head>
 <body>
@@ -325,30 +330,20 @@ footer{padding:28px 56px}
   </div>
 </section>
 
-<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; B2B Commercial Excellence</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Book a call</a> <a href="https://www.betterismore.eu/fr/blog-2/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Read the blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="mailto:contact@betterismore.eu">&#9993; contact@betterismore.eu</a></div></footer>
+<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; B2B Commercial Excellence</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Book a call</a> <a href="https://www.betterismore.eu/fr/blog-2/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Read the blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="/cdn-cgi/l/email-protection#d8bbb7b6acb9bbac98babdacacbdaab1abb5b7aabdf6bdad">&#9993; <span class="__cf_email__" data-cfemail="a6c5c9c8d2c7c5d2e6c4c3d2d2c3d4cfd5cbc9d4c388c3d3">[email&#160;protected]</span></a></div></footer>
 
 <div id="cdot"></div>
 <div id="cring"></div>
 <script>(function(){
+var isTouch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
 var cd=document.getElementById('cdot'),cr=document.getElementById('cring');
-document.addEventListener('mousemove',function(e){
-  cd.style.left=e.clientX+'px';cd.style.top=e.clientY+'px';
-  cr.style.left=e.clientX+'px';cr.style.top=e.clientY+'px';
-});
-document.querySelectorAll('a,button').forEach(function(x){
-  x.addEventListener('mouseenter',function(){cd.classList.add('h');cr.classList.add('h');});
-  x.addEventListener('mouseleave',function(){cd.classList.remove('h');cr.classList.remove('h');});
-});
+if(isTouch){cd.style.display='none';cr.style.display='none';return;}
+document.addEventListener('mousemove',function(e){cd.style.left=e.clientX+'px';cd.style.top=e.clientY+'px';cr.style.left=e.clientX+'px';cr.style.top=e.clientY+'px';});
+document.querySelectorAll('a,button').forEach(function(x){x.addEventListener('mouseenter',function(){cd.classList.add('h');cr.classList.add('h');});x.addEventListener('mouseleave',function(){cd.classList.remove('h');cr.classList.remove('h');});});
 var hbg=document.getElementById('hbg'),mob=document.getElementById('nav-mobile');
 hbg.addEventListener('click',function(){hbg.classList.toggle('open');mob.classList.toggle('open');});
-document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){
-  x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});
-});
-window.toggleTheme=function(){
-  var dark=document.documentElement.getAttribute('data-theme')==='dark';
-  document.documentElement.setAttribute('data-theme',dark?'light':'dark');
-  document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';
-};
+document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});
+window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};
 })();</script>
 </body>
 </html>
