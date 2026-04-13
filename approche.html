@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approche — BetterIsMore</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Open+Sans:wght@300;400;500&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#10356D;--orange:#F2A23A;--ink:#10356D;--ink2:#2A3A5C;--ink3:#6B7A99;--ink4:#A8B4CC;--bg:#F7F6F2;--bg2:#E8E6DC;--white:#FFFFFF;--offwhite:#F0EEE5;--line:rgba(16,53,109,0.1);--fh:'Montserrat',sans-serif;--fb:'Open Sans',sans-serif}
+[data-theme="dark"]{--bg:#0F1B2D;--bg2:#162236;--white:#1A2942;--offwhite:#162236;--ink:#E8EEF8;--ink2:#B8C8E0;--ink3:#7A90B0;--ink4:#4A6080;--line:rgba(232,238,248,0.08)}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6;cursor:none!important}
+.page-wrap{max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+a,button,.fw{cursor:none!important}
+.rot-band{background:var(--offwhite);border-bottom:1px solid var(--line);padding:16px 20px;text-align:left;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.rot-inner{display:flex;flex-direction:column;gap:4px;max-width:1200px;margin:0}
+.rot-prefix{font-family:var(--fh);font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--navy);display:block}
+.rot-txt{font-family:var(--fh);font-size:clamp(18px,2.5vw,28px);font-weight:700;color:var(--orange);display:block;opacity:1;transform:translateY(0);transition:opacity .3s,transform .3s}
+.rot-txt.out{opacity:0;transform:translateY(-8px)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:60px;background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.logo{font-family:var(--fh);font-weight:800;font-size:16px;color:var(--navy);text-decoration:none;flex-shrink:0}
+.logo em{color:var(--orange);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:6px}
+.lang-btn{background:none;border:1px solid var(--line);border-radius:20px;padding:4px 10px;font-size:12px;color:var(--ink3);font-family:var(--fb);white-space:nowrap;text-decoration:none;transition:all .2s;display:inline-block}
+.lang-btn:hover{border-color:var(--orange);color:var(--navy)}
+.lang-btn.active{background:var(--orange);border-color:var(--orange);color:#fff}
+.theme-btn{background:none;border:1px solid var(--line);border-radius:20px;padding:4px 10px;font-size:13px;color:var(--ink3);font-family:var(--fb);transition:all .2s}
+.theme-btn:hover{border-color:var(--orange)}
+.hamburger{display:flex;flex-direction:column;gap:5px;padding:6px;background:none;border:none;margin-left:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-links{display:none}
+.nav-mobile{display:none;flex-direction:column;background:var(--white);border-bottom:1px solid var(--line);padding:16px 20px;gap:0;position:sticky;top:60px;z-index:99;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.nav-mobile.open{display:flex}
+.nav-mobile a{font-size:14px;color:var(--ink2);text-decoration:none;padding:11px 0;border-bottom:1px solid var(--line)}
+.nav-mobile a:last-of-type{border-bottom:none}
+.mob-cta{margin-top:10px;background:var(--orange);color:#fff;padding:12px 20px;border-radius:4px;font-size:14px;font-weight:700;text-align:center;font-family:var(--fh);text-decoration:none;display:block}
+.row{display:flex;flex-direction:column;max-width:1400px;margin:0 auto;width:100%}
+.dark{background:var(--navy);padding:48px 20px}
+.light{background:var(--white);padding:48px 20px}
+.muted{background:var(--bg2);padding:48px 20px}
+.plain{background:var(--bg);padding:48px 20px}
+.eyebrow{font-size:10px;letter-spacing:3px;font-weight:600;color:var(--orange);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--orange)}
+.stag{font-size:10px;letter-spacing:3px;color:var(--ink4);text-transform:uppercase;font-weight:600;margin-bottom:10px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,60px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;color:var(--navy);margin-bottom:20px}
+h1 em{color:var(--orange);font-style:italic}
+.sub{font-size:15px;color:var(--ink2);line-height:1.75;font-weight:300;margin-bottom:32px}
+.btn-o{background:var(--orange);color:#fff;padding:13px 24px;border-radius:4px;font-size:14px;font-weight:700;border:none;font-family:var(--fh);transition:background .2s;text-align:center;display:inline-block;text-decoration:none;width:100%}
+.btn-o:hover{background:var(--navy)}
+.btn-g{color:var(--ink3);font-size:13px;display:flex;align-items:center;justify-content:center;gap:5px;background:none;font-family:var(--fb);transition:color .2s;padding:10px 0;text-decoration:none;width:100%}
+.btn-g:hover{color:var(--ink)}
+.actions{display:flex;flex-direction:column;gap:8px}
+.adopt-lbl{font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:20px}
+.adopt-shock{font-family:var(--fh);font-size:clamp(15px,2vw,20px);font-weight:800;color:#fff;line-height:1.25;margin-bottom:22px}
+.adopt-shock em{color:var(--orange);font-style:italic}
+.adopt-row{display:flex;align-items:flex-start;gap:14px;padding:10px 0;border-top:1px solid rgba(255,255,255,0.06)}
+.adopt-l{font-family:var(--fh);font-size:24px;font-weight:800;color:var(--orange);width:28px;flex-shrink:0;line-height:1}
+.adopt-w{font-size:11px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.adopt-d{font-size:11px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.5}
+.adopt-sig{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);font-size:11px;color:rgba(255,255,255,0.3);font-style:italic}
+.adopt-sig strong{color:rgba(255,255,255,0.6);font-style:normal}
+.av-wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
+.avatar{width:200px;height:200px;border-radius:50%;border:3px solid rgba(255,255,255,0.15);background:#1A3A5C;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.av-name{font-family:var(--fh);font-size:16px;font-weight:800;color:#fff;text-align:center;margin-bottom:3px}
+.av-role{font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;text-align:center}
+.av-quote{border-top:1px solid rgba(255,255,255,0.07);padding-top:14px;width:100%;text-align:center}
+.av-quote p{font-size:12px;color:rgba(255,255,255,0.45);font-style:italic;font-weight:300;line-height:1.7}
+.manifesto{font-family:var(--fh);font-size:clamp(16px,2.2vw,22px);font-weight:700;line-height:1.35;color:var(--navy);margin-bottom:22px}
+.manifesto em{color:var(--orange);font-style:italic}
+.pts{display:flex;flex-direction:column}
+.pt{display:flex;gap:12px;padding:13px 0;border-top:1px solid var(--line);align-items:flex-start}
+.pt:first-child{border-top:none;padding-top:0}
+.pt-n{font-family:var(--fh);font-size:18px;font-weight:800;color:rgba(16,53,109,0.07);flex-shrink:0;width:20px;line-height:1}
+.pt-t{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;font-family:var(--fh)}
+.pt-d{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.6}
+.exp-sec{padding:48px 20px;border-bottom:1px solid var(--line);background:var(--bg);max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.exp-h2{font-family:var(--fh);font-size:clamp(22px,5vw,34px);font-weight:800;letter-spacing:-0.5px;color:var(--navy);margin-top:6px;margin-bottom:32px}
+.flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.flip-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+@media(max-width:767px){.flip-grid-2>.fw:last-child:nth-child(odd){grid-column:1/-1}}
+.fw{height:160px;perspective:900px}
+.fi{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.fw:hover .fi,.fw.flipped .fi{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:6px;padding:16px;overflow:hidden}
+.front{background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+.back{background:var(--navy);transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center}
+.f-num{font-family:var(--fh);font-size:10px;letter-spacing:2px;color:var(--ink4);font-weight:700}
+.f-title{font-family:var(--fh);font-size:13px;font-weight:800;color:var(--navy);line-height:1.2;flex:1;display:flex;align-items:center}
+.f-hint{font-size:10px;color:var(--ink4);font-weight:300}
+.b-tags{display:flex;flex-direction:column;gap:6px}
+.b-tag{font-size:12px;color:rgba(255,255,255,0.75);font-weight:400;line-height:1.4;display:flex;gap:8px;align-items:flex-start}
+.b-tag::before{content:'\2192';color:var(--orange);flex-shrink:0;font-size:11px;margin-top:1px}
+.pf-steps{display:flex;flex-direction:column}
+.pf-step{display:flex;gap:14px;padding:15px 0;border-top:1px solid rgba(255,255,255,0.06)}
+.pf-step:first-child{border-top:none;padding-top:0}
+.pf-n{font-family:var(--fh);font-size:20px;font-weight:800;color:rgba(255,255,255,0.1);line-height:1;flex-shrink:0;width:24px}
+.pf-t{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;font-family:var(--fh)}
+.pf-d{font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.6}
+.pf-title{font-family:var(--fh);font-size:clamp(20px,3.5vw,32px);font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1.15;margin-bottom:28px}
+.pf-title em{color:var(--orange);font-style:italic}
+.pm-list{display:flex;flex-direction:column}
+.pm{padding:15px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
+.pm:first-child{padding-top:0}
+.pm:last-child{border-bottom:none}
+.pm-icon{width:28px;height:28px;background:var(--white);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--line)}
+.pm-icon svg{width:12px;height:12px;stroke:var(--orange);fill:none;stroke-width:1.5}
+.pm-txt{font-size:13px;color:var(--ink2);line-height:1.6;font-weight:300}
+.pm-txt strong{font-weight:700;color:var(--ink);font-family:var(--fh)}
+.cta-sec{padding:64px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--navy);max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.cta-pre{font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.35);text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.cta-h{font-family:var(--fh);font-size:clamp(24px,4.5vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:14px}
+.cta-h em{color:var(--orange);font-style:italic}
+.cta-sub{font-size:14px;color:rgba(255,255,255,0.45);font-weight:300;margin-bottom:28px;line-height:1.75;max-width:360px}
+.cta-acts{display:flex;flex-direction:column;gap:8px;width:100%;max-width:320px}
+.btn-oi{background:var(--orange);color:#fff;padding:13px 24px;border-radius:4px;font-size:14px;font-weight:700;font-family:var(--fh);transition:background .2s;text-align:center;display:inline-block;text-decoration:none;width:100%}
+.btn-oi:hover{background:#d4891f}
+.btn-gh{color:rgba(255,255,255,0.45);font-size:13px;text-decoration:none;padding:8px 0;width:100%;text-align:center;display:block;transition:color .2s}
+.btn-gh:hover{color:#fff}
+footer{padding:24px 20px;display:flex;align-items:center;justify-content:space-between;background:var(--white);border-top:1px solid var(--line);max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.fl{font-family:var(--fh);font-weight:800;font-size:14px;color:var(--ink3);text-decoration:none}
+.fl em{color:var(--orange);font-style:normal}
+.fc{font-size:11px;color:var(--ink4);font-weight:300}
+#cdot{position:fixed;left:-40px;top:-40px;width:10px;height:10px;background:var(--orange);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+#cring{position:fixed;left:-40px;top:-40px;width:32px;height:32px;border:1.5px solid var(--orange);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0.4;transition:width .3s,height .3s,opacity .25s}
+#cdot.h{width:20px;height:20px}
+#cring.h{opacity:0;width:0;height:0}
+@media(min-width:768px){
+nav{padding:0 56px;height:68px}
+.hamburger{display:none}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:13px;color:var(--ink3);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links .nav-cta{background:var(--orange);color:#fff;padding:8px 20px;border-radius:4px;font-size:13px;font-weight:700;font-family:var(--fh);transition:background .2s}
+.nav-links .nav-cta:hover{background:var(--navy);color:#fff}
+.row{flex-direction:row}
+.row>*{flex:1}
+.dark,.light,.muted,.plain{padding:72px 56px}
+.btn-o,.btn-g,.btn-oi,.btn-gh{width:auto}
+.actions{flex-direction:row}
+.flip-grid{grid-template-columns:repeat(4,1fr);gap:10px}
+.flip-grid-2{grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.fw{height:172px}
+.f-title{font-size:clamp(11px,1.2vw,14px)}
+.exp-sec{padding:80px 56px}
+.cta-sec{padding:88px 56px}
+.cta-acts{flex-direction:row;width:auto;max-width:none}
+footer{padding:28px 56px}
+.rot-band{padding:16px 56px}
+}
+
+/* ─── APPROCHE PAGE ─── */
+.ap-hero{background:var(--navy);padding:56px 20px 48px}
+.ap-hero-inner{display:flex;flex-direction:column;gap:32px;max-width:1400px;margin:0 auto}
+.ap-hero-text h1{font-family:var(--fh);font-size:clamp(26px,5vw,46px);font-weight:800;color:#fff;line-height:1.05;letter-spacing:-1px;margin-bottom:16px}
+.ap-hero-text h1 em{color:var(--orange);font-style:italic}
+.ap-hero-text .ap-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.ap-badge{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);font-family:var(--fh);letter-spacing:0.5px;text-transform:uppercase}
+.ap-hero-text .sub{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;font-weight:300;margin-bottom:0}
+.ap-portrait{width:100%;max-width:300px;margin:0 auto;border-radius:8px;overflow:hidden;border:2px solid rgba(255,255,255,0.1);background:#1A3A5C;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ap-portrait img{width:100%;height:100%;object-fit:cover}
+.ap-portrait-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:20px}
+.ap-portrait-ph svg{width:40px;height:40px;stroke:rgba(255,255,255,0.2);fill:none;stroke-width:1}
+.ap-portrait-ph p{font-size:11px;color:rgba(255,255,255,0.2);font-family:var(--fh);text-align:center}
+
+/* SECTIONS */
+.ap-sec{max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.ap-sec.white{background:var(--white);padding:48px 20px}
+.ap-sec.muted{background:var(--bg2);padding:48px 20px}
+.ap-sec.plain{background:var(--bg);padding:48px 20px}
+.ap-sec.dark{background:var(--navy);padding:48px 20px}
+.ap-inner{max-width:900px}
+
+.ap-h2{font-family:var(--fh);font-size:clamp(20px,3vw,30px);font-weight:800;color:var(--navy);letter-spacing:-0.3px;line-height:1.15;margin-bottom:6px}
+.ap-dark .ap-h2{color:#fff}
+.ap-lead{font-size:14px;color:var(--ink3);font-weight:300;line-height:1.8;margin-bottom:24px}
+.ap-dark .ap-lead{color:rgba(255,255,255,0.45)}
+.ap-p{font-size:14px;color:var(--ink2);font-weight:300;line-height:1.8;margin-bottom:10px}
+.ap-p strong{color:var(--ink);font-weight:700}
+.ap-dark .ap-p{color:rgba(255,255,255,0.55)}
+
+/* PILLARS */
+.ap-pillars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.ap-pillar{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:18px 16px}
+.ap-pillar-label{font-family:var(--fh);font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.ap-pillar-desc{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.6}
+
+/* XP TWO-COL */
+.ap-xp{display:flex;flex-direction:column;gap:32px;margin-top:8px}
+.ap-xp-col h3{font-family:var(--fh);font-size:13px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.ap-list{list-style:none;padding:0;margin:0}
+.ap-list li{font-size:13px;color:var(--ink2);font-weight:300;line-height:1.6;padding:7px 0;border-top:1px solid var(--line);display:flex;gap:9px;align-items:flex-start}
+.ap-list li:last-child{border-bottom:1px solid var(--line)}
+.ap-list li::before{content:'→';color:var(--orange);flex-shrink:0;font-size:11px;margin-top:3px}
+.ap-list.dark-list li{border-top-color:rgba(255,255,255,0.06);color:rgba(255,255,255,0.55)}
+.ap-list.dark-list li:last-child{border-bottom-color:rgba(255,255,255,0.06)}
+.ap-list.dark-list li::before{color:var(--orange)}
+
+/* GAINS */
+.ap-gains{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.ap-gain{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:18px 16px;display:flex;gap:14px;align-items:flex-start}
+.ap-gain-icon{width:32px;height:32px;background:var(--orange);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ap-gain-icon svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2}
+.ap-gain-t{font-family:var(--fh);font-size:13px;font-weight:800;color:var(--navy);margin-bottom:3px}
+.ap-gain-d{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.5}
+
+/* LOGOS */
+.ap-logos{max-width:1440px;margin:0 auto;padding:48px 20px;background:var(--white);width:100%;box-sizing:border-box}
+.ap-logos-title{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:3px;color:var(--ink4);text-transform:uppercase;text-align:center;margin-bottom:24px}
+.ap-logos-ph{border:2px dashed var(--line);border-radius:8px;padding:40px 20px;text-align:center;background:var(--bg)}
+.ap-logos-ph p{font-size:12px;color:var(--ink4);font-family:var(--fh)}
+
+/* FONDAMENTAUX */
+.ap-3col{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.ap-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:20px 16px}
+.ap-card-t{font-family:var(--fh);font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.ap-card-d{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.5}
+
+/* PHILOSOPHY */
+.ap-phil{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.ap-phil-item{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.ap-phil-item:first-child{border-top:1px solid rgba(255,255,255,0.06)}
+.ap-phil-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.ap-phil-txt{font-size:14px;color:rgba(255,255,255,0.7);font-weight:300}
+
+/* CTA */
+.ap-cta{background:var(--navy);padding:64px 20px;text-align:center;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.ap-cta h2{font-family:var(--fh);font-size:clamp(22px,4vw,36px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:12px}
+.ap-cta h2 em{color:var(--orange);font-style:italic}
+.ap-cta .sub{font-size:14px;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.7;margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto}
+.ap-cta-list{list-style:none;padding:0;margin:0 auto 28px;max-width:340px;text-align:left}
+.ap-cta-list li{font-size:13px;color:rgba(255,255,255,0.6);padding:5px 0;display:flex;gap:8px;align-items:flex-start;font-weight:300}
+.ap-cta-list li::before{content:'→';color:var(--orange);flex-shrink:0;font-size:11px;margin-top:3px}
+.ap-btn{background:var(--orange);color:#fff;padding:14px 32px;border-radius:4px;font-size:15px;font-weight:700;border:none;font-family:var(--fh);transition:background .2s;text-decoration:none;display:inline-block;cursor:none}
+.ap-btn:hover{background:#d4891f}
+.ap-sub-link{display:block;margin-top:12px;font-size:12px;color:rgba(255,255,255,0.3);font-weight:300}
+
+/* DESKTOP */
+@media(min-width:768px){
+  .ap-hero{padding:80px 56px 64px}
+  .ap-hero-inner{flex-direction:row;align-items:flex-start;gap:56px}
+  .ap-hero-text{flex:1}
+  .ap-portrait{width:260px;max-width:260px;margin:0}
+  .ap-sec.white,.ap-sec.muted,.ap-sec.plain,.ap-sec.dark{padding:72px 56px}
+  .ap-pillars{grid-template-columns:repeat(4,1fr)}
+  .ap-xp{flex-direction:row}
+  .ap-xp-col{flex:1}
+  .ap-gains{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .ap-3col{flex-direction:row}
+  .ap-card{flex:1}
+  .ap-logos{padding:56px 56px}
+  .ap-cta{padding:88px 56px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">BetterIs<em>More</em></a>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="approche.html">Approche</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="https://calendly.com/better-is-more" class="nav-cta">Boostez votre performance &#x2197;</a>
+  </div>
+  <div class="nav-right">
+    <a class="lang-btn active" href="approche.html">&#127467;&#127479; FR</a>
+    <a class="lang-btn" href="approche-en.html">&#127468;&#127463; EN</a>
+    <button class="theme-btn" id="btn-theme" onclick="toggleTheme()">&#127769;</button>
+    <button class="hamburger" id="hbg"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="nav-mobile" class="nav-mobile">
+  <a href="index.html">Accueil</a>
+  <a href="approche.html">Approche</a>
+  <a href="newsletter.html">Newsletter</a>
+  <a href="https://calendly.com/better-is-more" class="mob-cta">Boostez votre performance &#x2197;</a>
+</div>
+
+<!-- HERO -->
+<section class="ap-hero">
+  <div class="ap-hero-inner">
+    <div class="ap-hero-text">
+      <p class="eyebrow">Notre approche</p>
+      <h1>Transformez votre potentiel commercial<br>en <em>résultats durables</em></h1>
+      <div class="ap-badges">
+        <span class="ap-badge">360&#xb0;</span>
+        <span class="ap-badge">Consulting</span>
+        <span class="ap-badge">Transition</span>
+        <span class="ap-badge">Mentoring</span>
+        <span class="ap-badge">Formation</span>
+      </div>
+      <p class="sub">Pour moi, <strong style="color:rgba(255,255,255,0.8)">Lounas Aliouche</strong>, l’excellence commerciale n’est pas seulement un métier. C’est un engagement.</p>
+    </div>
+    <div class="ap-portrait">
+  <div class="ap-portrait-ph">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    <p>Photo portrait<br>Lounas</p>
+  </div>
+</div>
+  </div>
+</section>
+
+<!-- CONVICTION -->
+<div class="ap-sec white">
+  <div class="ap-inner">
+    <p class="stag" style="margin-bottom:8px">Ma conviction</p>
+    <h2 class="ap-h2">Chaque entreprise possède un potentiel commercial inexploité</h2>
+    <p class="ap-lead">Ce potentiel est double</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+      <div style="background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;gap:12px;align-items:center">
+        <span style="font-family:var(--fh);font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:1px;flex-shrink:0">Interne</span>
+        <span style="font-size:13px;color:var(--ink3);font-weight:300">Organisation, équipe, process</span>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;gap:12px;align-items:center">
+        <span style="font-family:var(--fh);font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:1px;flex-shrink:0">Externe</span>
+        <span style="font-size:13px;color:var(--ink3);font-weight:300">Marché, clients, opportunités non captées</span>
+      </div>
+    </div>
+    <p class="ap-p">Et pourtant, la majorité des actions mises en place restent <strong>ponctuelles</strong>, <strong>peu adoptées</strong> et <strong>sans impact durable</strong>.</p>
+  </div>
+</div>
+
+<!-- 4 PILIERS -->
+<div class="ap-sec muted">
+  <div class="ap-inner">
+    <p class="stag" style="margin-bottom:8px">Une approche différente</p>
+    <h2 class="ap-h2">Activer, structurer, pérenniser</h2>
+    <p class="ap-p">Mon rôle n’est pas d’ajouter une couche de conseil. Mon rôle est de <strong>transformer votre organisation commerciale</strong> pour produire des résultats concrets, mesurables et durables.</p>
+    <div class="ap-pillars">
+      <div class="ap-pillar"><p class="ap-pillar-label">Opérationnelle</p><p class="ap-pillar-desc">Des actions directement applicables dans votre quotidien</p></div>
+      <div class="ap-pillar"><p class="ap-pillar-label">Structurelle</p><p class="ap-pillar-desc">Une organisation pensée pour durer, pas pour corriger à court terme</p></div>
+      <div class="ap-pillar"><p class="ap-pillar-label">Personnalisée</p><p class="ap-pillar-desc">100% adaptée à votre contexte, votre marché et vos enjeux</p></div>
+      <div class="ap-pillar"><p class="ap-pillar-label">Adoptée</p><p class="ap-pillar-desc">Intégrée par vos équipes pour garantir un impact réel</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- XP TERRAIN -->
+<div class="ap-sec plain">
+  <div class="ap-inner">
+    <p class="stag" style="margin-bottom:8px">Expérience terrain</p>
+    <h2 class="ap-h2">De l’expérience terrain à la transformation stratégique</h2>
+    <p class="ap-p">Avec plus de <strong>30 ans d’expérience</strong>, j’ai accompagné et dirigé des équipes commerciales et managériales dans des environnements complexes et internationaux. J’ai travaillé à travers l’Europe et collaboré avec des équipes sur tous les continents.</p>
+    <div class="ap-xp">
+      <div class="ap-xp-col">
+        <h3>Environnements</h3>
+        <ul class="ap-list">
+          <li>Multinationales, ETI, scale-ups</li>
+          <li>Marchés compétitifs et en mutation</li>
+          <li>Modèles : direct, indirect, alliances</li>
+          <li>Secteurs : tech, SaaS, télécoms, outsourcing, services financiers</li>
+        </ul>
+      </div>
+      <div class="ap-xp-col">
+        <h3>Mon intervention porte sur</h3>
+        <ul class="ap-list">
+          <li>Le <strong>business</strong></li>
+          <li>L’<strong>humain</strong></li>
+          <li>Et leur <strong>alignement</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGOS -->
+<div class="ap-logos">
+  <p class="ap-logos-title">Ils m&#x2019;ont fait confiance</p>
+  <div class="ap-logos-ph">
+    <p>&#128444; Image logos clients &#x2014; remplacer par votre fichier image</p>
+  </div>
+</div>
+
+<!-- GAINS -->
+<div class="ap-sec white">
+  <div class="ap-inner">
+    <p class="stag" style="margin-bottom:8px">Résultats concrets</p>
+    <h2 class="ap-h2">Ce que votre organisation gagne concrètement</h2>
+    <p class="ap-p" style="margin-bottom:20px">Mon approche ne se limite pas à améliorer. Elle structure une <strong>croissance maîtrisée</strong>.</p>
+    <div class="ap-gains">
+      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><p class="ap-gain-t">Meilleure prévisibilité</p><p class="ap-gain-d">Des projections fiables pour piloter votre activité avec précision</p></div></div>
+      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><div><p class="ap-gain-t">Visibilité claire de votre business</p><p class="ap-gain-d">Indicateurs exploitables : CRM, conversion, opportunités, risques</p></div></div>
+      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><p class="ap-gain-t">Estimation de votre potentiel réel</p><p class="ap-gain-d">Une vision claire de ce que vous pouvez générer — et comment y parvenir</p></div></div>
+      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div><p class="ap-gain-t">Adaptation aux évolutions du marché</p><p class="ap-gain-d">Anticipez les changements et ajustez votre stratégie commerciale</p></div></div>
+      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><p class="ap-gain-t">Une équipe commerciale performante</p><p class="ap-gain-d">Motivée, structurée, focalisée sur les bons leviers</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FONDAMENTAUX -->
+<div class="ap-sec muted">
+  <div class="ap-inner">
+    <p class="stag" style="margin-bottom:8px">Fondamentaux</p>
+    <h2 class="ap-h2">Structurer les fondamentaux de l’excellence commerciale</h2>
+    <p class="ap-p" style="margin-bottom:20px">Pour produire des résultats durables, nous renfonçons ensemble :</p>
+    <div class="ap-3col">
+      <div class="ap-card"><p class="ap-card-t">L’approche commerciale</p><p class="ap-card-d">Méthodes, outils et stratégie adaptés à votre réalité</p></div>
+      <div class="ap-card"><p class="ap-card-t">La collaboration</p><p class="ap-card-d">Alignement entre équipes et relation client renforcée</p></div>
+      <div class="ap-card"><p class="ap-card-t">La culture commerciale</p><p class="ap-card-d">Engagement, dynamique et performance collective</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHIE -->
+<div class="ap-sec dark ap-dark">
+  <div class="ap-inner">
+    <p class="stag" style="margin-bottom:8px;color:rgba(255,255,255,0.3)">Philosophie</p>
+    <h2 class="ap-h2" style="color:#fff;margin-bottom:6px">Une philosophie simple : <em style="color:var(--orange);font-style:italic">Better is more</em></h2>
+    <p class="ap-p">Les entreprises les plus performantes ne cherchent pas à faire <strong style="color:#fff">plus</strong>. Elles cherchent à faire <strong style="color:var(--orange)">mieux</strong>.</p>
+    <div class="ap-phil" style="margin-top:20px">
+      <div class="ap-phil-item"><div class="ap-phil-dot"></div><span class="ap-phil-txt">Moins de dispersion</span></div>
+      <div class="ap-phil-item"><div class="ap-phil-dot"></div><span class="ap-phil-txt">Plus d’efficacité</span></div>
+      <div class="ap-phil-item"><div class="ap-phil-dot"></div><span class="ap-phil-txt">Plus d’impact</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="ap-cta">
+  <h2>Prêt à révéler votre<br><em>potentiel inexploité</em>&nbsp;?</h2>
+  <p class="sub">Réservez 30 minutes pour :</p>
+  <ul class="ap-cta-list">
+    <li>Identifier vos quick wins</li>
+    <li>Évaluer votre potentiel réel</li>
+    <li>Poser les bases d’un plan d’action concret</li>
+  </ul>
+  <a class="ap-btn" href="https://calendly.com/better-is-more">Passez d’un potentiel latent à des résultats mesurables &#x2197;</a>
+</section>
+
+<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; Excellence commerciale B2B</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Prendre rendez-vous</a> <a href="https://www.betterismore.eu/fr/blog-2/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Lire le blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="mailto:contact@betterismore.eu">&#9993; contact@betterismore.eu</a></div></footer>
+<div id="cdot"></div>
+<div id="cring"></div>
+<script>(function(){
+var cd=document.getElementById('cdot'),cr=document.getElementById('cring');
+document.addEventListener('mousemove',function(e){cd.style.left=e.clientX+'px';cd.style.top=e.clientY+'px';cr.style.left=e.clientX+'px';cr.style.top=e.clientY+'px';});
+document.querySelectorAll('a,button').forEach(function(x){x.addEventListener('mouseenter',function(){cd.classList.add('h');cr.classList.add('h');});x.addEventListener('mouseleave',function(){cd.classList.remove('h');cr.classList.remove('h');});});
+var hbg=document.getElementById('hbg'),mob=document.getElementById('nav-mobile');
+hbg.addEventListener('click',function(){hbg.classList.toggle('open');mob.classList.toggle('open');});
+document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});
+window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};
+})();</script>
+</body>
+</html>
