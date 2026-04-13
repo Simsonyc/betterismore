@@ -157,6 +157,30 @@ footer{padding:28px 56px}
   .b-tags{gap:4px}
   .b-tags p{font-size:10px;margin-bottom:5px}
 }
+
+/* ── BLOG SECTION ── */
+.blog-sec{background:var(--bg);padding:56px 20px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.blog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.blog-header h2{font-family:var(--fh);font-size:clamp(18px,3vw,26px);font-weight:800;color:var(--navy);letter-spacing:-0.3px}
+.blog-header a{font-size:12px;color:var(--ink3);text-decoration:none;font-family:var(--fh);font-weight:600;white-space:nowrap;transition:color .2s}
+.blog-header a:hover{color:var(--orange)}
+.blog-grid{display:flex;flex-direction:column;gap:12px}
+.blog-card{background:var(--white);border:1px solid var(--line);border-radius:6px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-color .2s}
+.blog-card:hover{border-color:var(--orange)}
+.blog-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--bg2)}
+.blog-img-ph{width:100%;aspect-ratio:16/9;background:var(--bg2);display:flex;align-items:center;justify-content:center}
+.blog-img-ph svg{width:32px;height:32px;stroke:var(--ink4);fill:none;stroke-width:1}
+.blog-body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.blog-cat{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;font-family:var(--fh)}
+.blog-title{font-family:var(--fh);font-size:15px;font-weight:800;color:var(--navy);line-height:1.3}
+.blog-excerpt{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.6;flex:1}
+.blog-date{font-size:11px;color:var(--ink4);font-weight:300}
+.blog-loading{text-align:center;padding:40px;font-size:13px;color:var(--ink3)}
+@media(min-width:768px){
+  .blog-sec{padding:72px 56px}
+  .blog-grid{flex-direction:row;gap:16px}
+  .blog-card{flex:1}
+}
 </style>
 </head>
 <body>
@@ -255,7 +279,16 @@ footer{padding:28px 56px}
     <a class="btn-oi" href="https://calendly.com/better-is-more">Book a free slot &#x2197;</a>
   </div>
 </section>
-<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; B2B Commercial Excellence</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Book a call</a> <a href="https://www.betterismore.eu/fr/blog-2/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Read the blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="/cdn-cgi/l/email-protection#d3b0bcbda7b2b0a793b1b6a7a7b6a1baa0bebca1b6fdb6a6" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9993; <span class="__cf_email__" data-cfemail="395a56574d585a4d795b5c4d4d5c4b504a54564b5c175c4c">[email&#160;protected]</span></a></div></footer>
+<section class="blog-sec" id="blog">
+  <div class="blog-header">
+    <h2>My latest articles</h2>
+    <a href="https://www.betterismore.eu/fr/blog-2/">See all articles →</a>
+  </div>
+  <div class="blog-grid" id="blog-grid">
+    <div class="blog-loading">Loading articles…</div>
+  </div>
+</section>
+<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; B2B Commercial Excellence</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Book a call</a> <a href="https://www.betterismore.eu/fr/blog-2/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Read the blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="mailto:contact@betterismore.eu">&#9993; contact@betterismore.eu</a></div></footer>
 <div id="cdot"></div>
 <div id="cring"></div>
 <script>(function(){
@@ -267,7 +300,37 @@ hbg.addEventListener('click',function(){hbg.classList.toggle('open');mob.classLi
 document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});
 var phrases=["Turn your CRM into a real business driver?","Boost your sales team\u2019s performance?","Structure and grow your Key Accounts?","Fully leverage your international presence?","Motivate your salespeople with the right compensation plan?","Stay ahead of your market\u2019s evolutions?","Maximize your partner network to gain market share?"];
 var i=0,el=document.getElementById('rot-txt');
-setInterval(function(){el.classList.add('out');setTimeout(function(){i=(i+1)%phrases.length;el.textContent=phrases[i];el.classList.remove('out');},300);},2500);window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};})();
+setInterval(function(){el.classList.add('out');setTimeout(function(){i=(i+1)%phrases.length;el.textContent=phrases[i];el.classList.remove('out');},300);},2500);window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};/* BLOG */
+(function(){
+  var g=document.getElementById('blog-grid');
+  if(!g)return;
+  fetch('https://www.betterismore.eu/wp-json/wp/v2/posts?per_page=3&_embed')
+    .then(function(r){return r.json();})
+    .then(function(posts){
+      if(!posts||!posts.length){g.innerHTML='<p class="blog-loading">No articles found.</p>';return;}
+      g.innerHTML=posts.map(function(p){
+        var title=p.title.rendered.replace(/<[^>]+>/g,'');
+        var excerpt=p.excerpt.rendered.replace(/<[^>]+>/g,'').slice(0,110).trim()+'…';
+        var date=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+        var img='';
+        try{img=p._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url;}catch(e){}
+        if(!img){try{img=p._embedded['wp:featuredmedia'][0].source_url;}catch(e){}}
+        var imgHtml=img
+          ?'<img class="blog-img" src="'+img+'" alt="'+title+'" loading="lazy">'
+          :'<div class="blog-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>';
+        return '<a class="blog-card" href="'+p.link+'" target="_blank" rel="noopener">'
+          +imgHtml
+          +'<div class="blog-body">'
+          +'<span class="blog-cat">Article</span>'
+          +'<p class="blog-title">'+title+'</p>'
+          +'<p class="blog-excerpt">'+excerpt+'</p>'
+          +'<span class="blog-date">'+date+'</span>'
+          +'</div></a>';
+      }).join('');
+    })
+    .catch(function(){g.innerHTML='<p class="blog-loading">Articles unavailable.</p>';});
+})();
+})();
 </script>
 </body>
 </html>
