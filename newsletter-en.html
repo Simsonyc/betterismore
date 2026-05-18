@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Newsletter — BetterIsMore</title>
+<title>The Sales Performance Brief — BetterIsMore</title>
 <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Open+Sans:wght@300;400;500&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#10356D;--orange:#F2A23A;--ink:#10356D;--ink2:#2A3A5C;--ink3:#6B7A99;--ink4:#A8B4CC;--bg:#F7F6F2;--bg2:#E8E6DC;--white:#FFFFFF;--offwhite:#F0EEE5;--line:rgba(16,53,109,0.1);--fh:'Montserrat',sans-serif;--fb:'Open Sans',sans-serif}
@@ -233,6 +233,11 @@ footer{padding:28px 56px}
 .nl-card-t{font-family:var(--fh);font-size:13px;font-weight:800;color:var(--navy);margin-bottom:2px;line-height:1.3}
 .nl-card-d{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.5}
 @media(min-width:768px){.nl-cards{grid-template-columns:1fr 1fr}}
+
+.nl-name{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:24px}
+.nl-name-title{font-family:var(--fh);font-size:clamp(22px,4vw,36px);font-weight:800;color:#fff;letter-spacing:-0.5px;text-align:center;line-height:1.1}
+.nl-name-title em{color:var(--orange);font-style:italic}
+.nl-name-sub{font-size:13px;color:rgba(255,255,255,0.45);font-weight:300;letter-spacing:2px;text-transform:uppercase;text-align:center}
 </style>
 </head>
 <body>
@@ -264,7 +269,10 @@ footer{padding:28px 56px}
 <!-- HERO -->
 <section class="nl-hero">
   <div class="nl-hero-inner">
-    <p class="eyebrow" style="justify-content:center">Newsletter</p>
+    <div class="nl-name">
+      <p class="nl-name-title">The Sales Performance Brief</p>
+      <p class="nl-name-sub">Less noise. More results.</p>
+    </div>
     <h1>Success is not driven by having more information, but by what actually <em>works in the field</em></h1>
     <p class="sub">In this newsletter, I share over 25 years of experience in business transformation and team leadership, together with the insights I gain every day from working closely with the professionals I support. No theory. Only concrete, field-tested insights you can apply immediately.</p>
     <div class="nl-gift"><strong>Welcome gift:</strong> “What separates great leaders from good managers — 7 Practical Steps to Engage Immediately” (14-page booklet)</div>
