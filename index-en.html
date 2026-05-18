@@ -307,7 +307,34 @@ hbg.addEventListener('click',function(){hbg.classList.toggle('open');mob.classLi
 document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});
 var phrases=["Turn your CRM into a real business driver?","Boost your sales team\u2019s performance?","Structure and grow your Key Accounts?","Fully leverage your international presence?","Motivate your salespeople with the right compensation plan?","Stay ahead of your market\u2019s evolutions?","Maximize your partner network to gain market share?"];
 var i=0,el=document.getElementById('rot-txt');
-setInterval(function(){el.classList.add('out');setTimeout(function(){i=(i+1)%phrases.length;el.textContent=phrases[i];el.classList.remove('out');},300);},2500);window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};})();
+setInterval(function(){el.classList.add('out');setTimeout(function(){i=(i+1)%phrases.length;el.textContent=phrases[i];el.classList.remove('out');},300);},2500);window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};
+/* BLOG */
+(function(){
+  var g=document.getElementById('blog-grid');
+  if(!g)return;
+  fetch('https://betterismore.blog/wp-json/wp/v2/posts?per_page=3&_embed')
+    .then(function(r){return r.json();})
+    .then(function(posts){
+      if(!posts||!posts.length){g.innerHTML='<p class="blog-loading">No articles found.</p>';return;}
+      g.innerHTML=posts.map(function(p){
+        var title=p.title.rendered.replace(/<[^>]+>/g,'');
+        var excerpt=p.excerpt.rendered.replace(/<[^>]+>/g,'').slice(0,110).trim()+'…';
+        var date=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+        var img='';
+        try{img=p._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url;}catch(e){}
+        if(!img){try{img=p._embedded['wp:featuredmedia'][0].source_url;}catch(e){}}
+        var imgHtml=img
+          ?'<img class="blog-img" src="'+img+'" alt="'+title+'" loading="lazy">'
+          :'<div class="blog-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>';
+        return '<a class="blog-card" href="'+p.link+'" target="_blank" rel="noopener">'
+          +imgHtml+'<div class="blog-body"><span class="blog-cat">Article</span>'
+          +'<p class="blog-title">'+title+'</p><p class="blog-excerpt">'+excerpt+'</p>'
+          +'<span class="blog-date">'+date+'</span></div></a>';
+      }).join('');
+    })
+    .catch(function(){g.innerHTML='<p class="blog-loading">Articles unavailable.</p>';});
+})();
+})();
 </script>
 </body>
 </html>
