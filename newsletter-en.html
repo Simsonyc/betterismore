@@ -16,7 +16,7 @@ a,button,.fw{cursor:none!important}
 .rot-prefix{font-family:var(--fh);font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--navy);display:block}
 .rot-txt{font-family:var(--fh);font-size:clamp(18px,2.5vw,28px);font-weight:700;color:var(--orange);display:block;opacity:1;transform:translateY(0);transition:opacity .3s,transform .3s}
 .rot-txt.out{opacity:0;transform:translateY(-8px)}
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:110px;overflow:hidden;background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:60px;background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
 .logo{font-family:var(--fh);font-weight:800;font-size:16px;color:var(--navy);text-decoration:none;flex-shrink:0}
 .logo em{color:var(--orange);font-style:normal}
 .nav-right{display:flex;align-items:center;gap:6px}
@@ -31,7 +31,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 .nav-links{display:none}
-.nav-mobile{display:none;flex-direction:column;background:var(--white);border-bottom:1px solid var(--line);padding:16px 20px;gap:0;position:sticky;top:110px;z-index:99;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.nav-mobile{display:none;flex-direction:column;background:var(--white);border-bottom:1px solid var(--line);padding:16px 20px;gap:0;position:sticky;top:60px;z-index:99;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
 .nav-mobile.open{display:flex}
 .nav-mobile a{font-size:14px;color:var(--ink2);text-decoration:none;padding:11px 0;border-bottom:1px solid var(--line)}
 .nav-mobile a:last-of-type{border-bottom:none}
@@ -128,7 +128,7 @@ footer{padding:24px 20px;display:flex;align-items:center;justify-content:space-b
 #cdot.h{width:20px;height:20px}
 #cring.h{opacity:0;width:0;height:0}
 @media(min-width:768px){
-nav{padding:0 56px;height:110px}
+nav{padding:0 56px;height:68px}
 .hamburger{display:none}
 .nav-links{display:flex;align-items:center;gap:32px}
 .nav-links a{font-size:13px;color:var(--ink3);text-decoration:none;transition:color .2s}
@@ -243,7 +243,7 @@ footer{padding:28px 56px}
 <body>
 
 <nav>
-  <a class="logo" href="index-en.html"><img src="logo.png" alt="BetterIsMore" style="height:90px;width:auto;display:block"></a>
+  <a class="logo" href="index-en.html">BetterIs<em>More</em></a>
   <div class="nav-links">
     <a href="index-en.html">Home</a>
     <a href="index-en.html#approche">Approach</a>
@@ -354,7 +354,7 @@ footer{padding:28px 56px}
   </div>
 </section>
 
-<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; B2B Commercial Excellence</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Book a call</a> <a href="https://www.betterismore.eu/blog" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Read the blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="mailto:contact@betterismore.eu">&#9993; <span class="__cf_email__" data-cfemail="a6c5c9c8d2c7c5d2e6c4c3d2d2c3d4cfd5cbc9d4c388c3d3">[email&#160;protected]</span></a></div></footer>
+<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; B2B Commercial Excellence</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Book a call</a> <a href="https://www.betterismore.eu/blog" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Read the blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="mailto:contact@betterismore.eu">&#9993; contact@betterismore.eu</a></div></footer>
 
 <div id="cdot"></div>
 <div id="cring"></div>
