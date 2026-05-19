@@ -438,7 +438,21 @@ document.addEventListener('mousemove',function(e){cd.style.left=e.clientX+'px';c
 document.querySelectorAll('a,button').forEach(function(x){x.addEventListener('mouseenter',function(){cd.classList.add('h');cr.classList.add('h');});x.addEventListener('mouseleave',function(){cd.classList.remove('h');cr.classList.remove('h');});});
 var hbg=document.getElementById('hbg'),mob=document.getElementById('nav-mobile');
 hbg.addEventListener('click',function(){hbg.classList.toggle('open');mob.classList.toggle('open');});
-document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};})();
+document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});window.toggleTheme=function(){
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
+  var next=dark?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  document.getElementById('btn-theme').textContent=next==='dark'?'☀️':'🌙';
+  localStorage.setItem('theme',next);
+};
+// Init thème depuis localStorage
+(function(){
+  var t=localStorage.getItem('theme')||'light';
+  document.documentElement.setAttribute('data-theme',t);
+  var b=document.getElementById('btn-theme');
+  if(b)b.textContent=t==='dark'?'☀️':'🌙';
+})();
+})();
 </script>
 </body>
 </html>
