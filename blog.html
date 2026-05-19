@@ -213,6 +213,20 @@ footer{padding:28px 56px}
   .blog-main{padding:56px 56px}
   .blog-grid-page{grid-template-columns:repeat(3,1fr);gap:20px}
 }
+
+/* MODAL IFRAME */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--white);border-radius:8px;width:100%;max-width:1000px;height:90vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);flex-shrink:0}
+.modal-title{font-family:var(--fh);font-size:13px;font-weight:700;color:var(--navy);max-width:80%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.modal-actions{display:flex;align-items:center;gap:8px}
+.modal-open-ext{font-size:11px;color:var(--ink3);text-decoration:none;font-family:var(--fh);font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:4px;transition:all .2s}
+.modal-open-ext:hover{border-color:var(--orange);color:var(--orange)}
+.modal-close{background:none;border:none;font-size:20px;color:var(--ink3);cursor:none;line-height:1;padding:4px 8px;transition:color .2s}
+.modal-close:hover{color:var(--navy)}
+.modal-iframe{flex:1;border:none;width:100%}
+.modal-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--white);font-size:13px;color:var(--ink3);font-family:var(--fh)}
 </style>
 </head>
 <body>
@@ -262,6 +276,20 @@ footer{padding:28px 56px}
 
 <footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; B2B Commercial Excellence</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Book a call</a> <a href="https://betterismore.blog" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Read the blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="mailto:contact@betterismore.eu">&#9993; contact@betterismore.eu</a></div></footer>
 
+<!-- MODAL -->
+<div class="modal-overlay" id="article-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title"></span>
+      <div class="modal-actions">
+        <a class="modal-open-ext" id="modal-ext" href="#" target="_blank" rel="noopener">Open &#x2197;</a>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+    </div>
+    <div class="modal-loading" id="modal-loading">Loading&hellip;</div>
+    <iframe class="modal-iframe" id="modal-iframe" src="about:blank"></iframe>
+  </div>
+</div>
 <div id="cdot"></div>
 <div id="cring"></div>
 <script>(function(){
@@ -343,6 +371,47 @@ document.querySelectorAll('.filter-btn').forEach(function(btn){
 });
 if(loadBtn)loadBtn.addEventListener('click',function(){loadPosts(false);});
 loadPosts(true);
+
+/* MODAL */
+var modal=document.getElementById('article-modal');
+var mIframe=document.getElementById('modal-iframe');
+var mTitle=document.getElementById('modal-title');
+var mExt=document.getElementById('modal-ext');
+var mLoading=document.getElementById('modal-loading');
+var mClose=document.getElementById('modal-close');
+
+function openModal(url,title){
+  mTitle.textContent=title;
+  mExt.href=url;
+  mLoading.style.display='flex';
+  mIframe.src='about:blank';
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  mIframe.onload=function(){mLoading.style.display='none';};
+  mIframe.src=url;
+}
+function closeModal(){
+  modal.classList.remove('open');
+  document.body.style.overflow='';
+  mIframe.src='about:blank';
+}
+mClose.addEventListener('click',closeModal);
+modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+/* Override card clicks to open modal */
+function attachCardClicks(){
+  document.querySelectorAll('.blog-card-page').forEach(function(card){
+    card.addEventListener('click',function(e){
+      e.preventDefault();
+      openModal(card.href,card.querySelector('.blog-card-title').textContent);
+    });
+  });
+}
+/* Observe grid for new cards */
+var observer=new MutationObserver(attachCardClicks);
+observer.observe(document.getElementById('blog-page-grid'),{childList:true});
+
 })();</script>
 </body>
 </html>
