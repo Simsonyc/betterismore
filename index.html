@@ -327,6 +327,34 @@ taux d’occupation, en adhérant à la philosophie selon laquelle <strong style
 <div id="cring"></div>
 <script>(function(){var cd=document.getElementById('cdot'),cr=document.getElementById('cring');document.addEventListener('mousemove',function(e){cd.style.left=e.clientX+'px';cd.style.top=e.clientY+'px';cr.style.left=e.clientX+'px';cr.style.top=e.clientY+'px';});document.querySelectorAll('a,button,.fw').forEach(function(x){x.addEventListener('mouseenter',function(){cd.classList.add('h');cr.classList.add('h');});x.addEventListener('mouseleave',function(){cd.classList.remove('h');cr.classList.remove('h');});});var hbg=document.getElementById('hbg'),mob=document.getElementById('nav-mobile');hbg.addEventListener('click',function(){hbg.classList.toggle('open');mob.classList.toggle('open');});document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});var phrases=["Faire de votre CRM un véritable allié du business ?","Booster les performances de votre équipe commerciale ?","Structurer et développer vos Grands Comptes ?","Exploiter pleinement votre présence internationale ?","Dynamiser vos commerciaux avec une rémunération motivante ?","Prendre l’avantage sur les évolutions de votre marché ?","Maximiser votre réseau de partenaires pour gagner des parts de marché ?"];var i=0,el=document.getElementById('rot-txt');setInterval(function(){el.classList.add('out');setTimeout(function(){i=(i+1)%phrases.length;el.textContent=phrases[i];el.classList.remove('out');},300);},2500);window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};
 
+/* BLOG */
+(function blog(){
+  var g=document.getElementById('blog-grid');
+  if(!g)return;
+  fetch('https://betterismore.blog/wp-json/wp/v2/posts?per_page=3&_embed&lang=fr')
+    .then(function(r){return r.json();})
+    .then(function(posts){
+      if(!posts||!posts.length){g.innerHTML='<p class="blog-loading">Aucun article trouvé.</p>';return;}
+      g.innerHTML=posts.map(function(p){
+        var title=p.title.rendered.replace(/<[^>]+>/g,'');
+        var excerpt=p.excerpt.rendered.replace(/<[^>]+>/g,'').slice(0,110).trim()+'…';
+        var date=new Date(p.date).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+        var img='';
+        try{img=p._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url;}catch(e){}
+        if(!img){try{img=p._embedded['wp:featuredmedia'][0].source_url;}catch(e){}}
+        var imgHtml=img
+          ?'<img class="blog-img" src="'+img+'" alt="'+title+'" loading="lazy">'
+          :'<div class="blog-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>';
+        return '<a class="blog-card" href="'+p.link+'" target="_blank" rel="noopener">'
+          +imgHtml+'<div class="blog-body"><span class="blog-cat">Article</span>'
+          +'<p class="blog-title">'+title+'</p><p class="blog-excerpt">'+excerpt+'</p>'
+          +'<span class="blog-date">'+date+'</span></div></a>';
+      }).join('');
+      attachCardClicks();
+    })
+    .catch(function(){g.innerHTML='<p class="blog-loading">Articles indisponibles.</p>';});
+})();
+
 /* MODAL */
 var modal=document.getElementById('article-modal');
 var mIframe=document.getElementById('modal-iframe');
