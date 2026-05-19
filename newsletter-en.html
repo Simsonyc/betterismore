@@ -361,7 +361,7 @@ footer{padding:28px 56px}
 <script>(function(){
 var isTouch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
 var cd=document.getElementById('cdot'),cr=document.getElementById('cring');
-if(isTouch){cd.style.display='none';cr.style.display='none';return;}
+if(isTouch){cd.style.display='none';cr.style.display='none';}
 document.addEventListener('mousemove',function(e){cd.style.left=e.clientX+'px';cd.style.top=e.clientY+'px';cr.style.left=e.clientX+'px';cr.style.top=e.clientY+'px';});
 document.querySelectorAll('a,button').forEach(function(x){x.addEventListener('mouseenter',function(){cd.classList.add('h');cr.classList.add('h');});x.addEventListener('mouseleave',function(){cd.classList.remove('h');cr.classList.remove('h');});});
 var hbg=document.getElementById('hbg'),mob=document.getElementById('nav-mobile');
