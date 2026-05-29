@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Approach — BetterIsMore</title>
+<title>Approche — BetterIsMore</title>
 <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Open+Sans:wght@300;400;500&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#10356D;--orange:#F2A23A;--ink:#10356D;--ink2:#2A3A5C;--ink3:#6B7A99;--ink4:#A8B4CC;--bg:#F7F6F2;--bg2:#E8E6DC;--white:#FFFFFF;--offwhite:#F0EEE5;--line:rgba(16,53,109,0.1);--fh:'Montserrat',sans-serif;--fb:'Open Sans',sans-serif}
@@ -253,46 +253,53 @@ footer{padding:28px 56px}
   .ap-logos{padding:56px 56px}
   .ap-cta{padding:88px 56px}
 }
+
+@media(hover:none),(-moz-touch-enabled:1),(pointer:coarse){
+  #cdot,#cring{display:none!important}
+  body,a,button,.fw{cursor:auto!important}
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="logo" href="index-en.html">BetterIs<em>More</em></a>
+  <a class="logo" href="index.html">BetterIs<em>More</em></a>
   <div class="nav-links">
-    <a href="index-en.html">Home</a>
-    <a href="approche-en.html">Approach</a>
-    <a href="newsletter-en.html">Newsletter</a>
-    <a href="https://calendly.com/better-is-more" class="nav-cta">Boost your performance &#x2197;</a>
+    <a href="index.html">Accueil</a>
+    <a href="approche.html">Approche</a>
+    <a href="newsletter.html">Newsletter</a>
+	<a href="blog-fr.html">Blog</a>
+    <a href="https://calendly.com/better-is-more" class="nav-cta">Boostez votre performance &#x2197;</a>
   </div>
   <div class="nav-right">
-    <a class="lang-btn" href="approche.html">&#127467;&#127479; FR</a>
-    <a class="lang-btn active" href="approche-en.html">&#127468;&#127463; EN</a>
+    <a class="lang-btn active" href="approche.html">&#127467;&#127479; FR</a>
+    <a class="lang-btn" href="approche-en.html">&#127468;&#127463; EN</a>
     <button class="theme-btn" id="btn-theme" onclick="toggleTheme()">&#127769;</button>
     <button class="hamburger" id="hbg"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div id="nav-mobile" class="nav-mobile">
-  <a href="index-en.html">Home</a>
-  <a href="approche-en.html">Approach</a>
-  <a href="newsletter-en.html">Newsletter</a>
-  <a href="https://calendly.com/better-is-more" class="mob-cta">Boost your performance &#x2197;</a>
+  <a href="index.html">Accueil</a>
+  <a href="approche.html">Approche</a>
+  <a href="newsletter.html">Newsletter</a>
+  <a href="blog-fr.html">Blog</a>
+  <a href="https://calendly.com/better-is-more" class="mob-cta">Boostez votre performance &#x2197;</a>
 </div>
 
 <!-- HERO -->
 <section class="ap-hero">
   <div class="ap-hero-inner">
     <div class="ap-hero-text">
-      <p class="eyebrow">Our approach</p>
-      <h1>Transform your commercial potential<br>into <em>lasting results</em></h1>
+      <p class="eyebrow">Notre approche</p>
+      <h1>Transformez votre potentiel commercial<br>en <em>résultats durables</em></h1>
       <div class="ap-badges">
         <span class="ap-badge">360&#xb0;</span>
         <span class="ap-badge">Consulting</span>
         <span class="ap-badge">Transition</span>
         <span class="ap-badge">Mentoring</span>
-        <span class="ap-badge">Training</span>
+        <span class="ap-badge">Formation</span>
       </div>
-      <p class="sub">For me, <strong style="color:rgba(255,255,255,0.8)">Lounas Aliouche</strong>, commercial excellence is not just a profession. It is a commitment.</p>
+      <p class="sub">Pour moi, <strong style="color:rgba(255,255,255,0.8)">Lounas Aliouche</strong>, l’excellence commerciale n’est pas seulement un métier. C’est un engagement.</p>
     </div>
     <div class="ap-portrait"><img src="lounas-portrait.jpg" alt="Lounas Aliouche"></div>
   </div>
@@ -301,60 +308,60 @@ footer{padding:28px 56px}
 <!-- CONVICTION -->
 <div class="ap-sec white">
   <div class="ap-inner">
-    <p class="stag" style="margin-bottom:8px">My belief</p>
-    <h2 class="ap-h2">Every company has untapped commercial potential</h2>
-    <p class="ap-lead">This potential is twofold</p>
+    <p class="stag" style="margin-bottom:8px">Ma conviction</p>
+    <h2 class="ap-h2">Chaque entreprise possède un potentiel commercial inexploité</h2>
+    <p class="ap-lead">Ce potentiel est double</p>
     <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
       <div style="background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;gap:12px;align-items:center">
-        <span style="font-family:var(--fh);font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:1px;flex-shrink:0">Internal</span>
-        <span style="font-size:13px;color:var(--ink3);font-weight:300">Organisation, team, processes</span>
+        <span style="font-family:var(--fh);font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:1px;flex-shrink:0">Interne</span>
+        <span style="font-size:13px;color:var(--ink3);font-weight:300">Organisation, équipe, process</span>
       </div>
       <div style="background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;gap:12px;align-items:center">
-        <span style="font-family:var(--fh);font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:1px;flex-shrink:0">External</span>
-        <span style="font-size:13px;color:var(--ink3);font-weight:300">Market, clients, uncaptured opportunities</span>
+        <span style="font-family:var(--fh);font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:1px;flex-shrink:0">Externe</span>
+        <span style="font-size:13px;color:var(--ink3);font-weight:300">Marché, clients, opportunités non captées</span>
       </div>
     </div>
-    <p class="ap-p">Yet most actions remain <strong>one-off</strong>, <strong>poorly adopted</strong>, and <strong>without lasting impact</strong>.</p>
+    <p class="ap-p">Et pourtant, la majorité des actions mises en place restent <strong>ponctuelles</strong>, <strong>peu adoptées</strong> et <strong>sans impact durable</strong>.</p>
   </div>
 </div>
 
-<!-- 4 PILLARS -->
+<!-- 4 PILIERS -->
 <div class="ap-sec muted">
   <div class="ap-inner">
-    <p class="stag" style="margin-bottom:8px">A different approach</p>
-    <h2 class="ap-h2">Activate, structure, sustain</h2>
-    <p class="ap-p">My role is not to add another layer of consulting. My role is to <strong>transform your commercial organisation</strong> to deliver concrete, measurable and lasting results.</p>
+    <p class="stag" style="margin-bottom:8px">Une approche différente</p>
+    <h2 class="ap-h2">Activer, structurer, pérenniser</h2>
+    <p class="ap-p">Mon rôle n’est pas d’ajouter une couche de conseil. Mon rôle est de <strong>transformer votre organisation commerciale</strong> pour produire des résultats concrets, mesurables et durables.</p>
     <div class="ap-pillars">
-      <div class="ap-pillar"><p class="ap-pillar-label">Operational</p><p class="ap-pillar-desc">Actions directly applicable in your day-to-day reality</p></div>
-      <div class="ap-pillar"><p class="ap-pillar-label">Structural</p><p class="ap-pillar-desc">An organisation built to last, not to fix short-term</p></div>
-      <div class="ap-pillar"><p class="ap-pillar-label">Personalised</p><p class="ap-pillar-desc">100% tailored to your context, market and challenges</p></div>
-      <div class="ap-pillar"><p class="ap-pillar-label">Adopted</p><p class="ap-pillar-desc">Embedded by your teams to guarantee real impact</p></div>
+      <div class="ap-pillar"><p class="ap-pillar-label">Opérationnelle</p><p class="ap-pillar-desc">Des actions directement applicables dans votre quotidien</p></div>
+      <div class="ap-pillar"><p class="ap-pillar-label">Structurelle</p><p class="ap-pillar-desc">Une organisation pensée pour durer, pas pour corriger à court terme</p></div>
+      <div class="ap-pillar"><p class="ap-pillar-label">Personnalisée</p><p class="ap-pillar-desc">100% adaptée à votre contexte, votre marché et vos enjeux</p></div>
+      <div class="ap-pillar"><p class="ap-pillar-label">Adoptée</p><p class="ap-pillar-desc">Intégrée par vos équipes pour garantir un impact réel</p></div>
     </div>
   </div>
 </div>
 
-<!-- XP -->
+<!-- XP TERRAIN -->
 <div class="ap-sec plain">
   <div class="ap-inner">
-    <p class="stag" style="margin-bottom:8px">Field experience</p>
-    <h2 class="ap-h2">From field experience to strategic transformation</h2>
-    <p class="ap-p">With over <strong>30 years of experience</strong>, I have led and supported commercial and management teams in complex international environments. I have worked across Europe and collaborated with teams on every continent.</p>
+    <p class="stag" style="margin-bottom:8px">Expérience terrain</p>
+    <h2 class="ap-h2">De l’expérience terrain à la transformation stratégique</h2>
+    <p class="ap-p">Avec plus de <strong>30 ans d’expérience</strong>, j’ai accompagné et dirigé des équipes commerciales et managériales dans des environnements complexes et internationaux. J’ai travaillé à travers l’Europe et collaboré avec des équipes sur tous les continents.</p>
     <div class="ap-xp">
       <div class="ap-xp-col">
-        <h3>Environments</h3>
+        <h3>Environnements</h3>
         <ul class="ap-list">
-          <li>Multinationals, mid-size companies, scale-ups</li>
-          <li>Competitive and evolving markets</li>
-          <li>Sales models: direct, indirect, alliances</li>
-          <li>Sectors: tech, SaaS, telco, outsourcing, financial services</li>
+          <li>Multinationales, ETI, scale-ups</li>
+          <li>Marchés compétitifs et en mutation</li>
+          <li>Modèles : direct, indirect, alliances</li>
+          <li>Secteurs : tech, SaaS, télécoms, outsourcing, services financiers</li>
         </ul>
       </div>
       <div class="ap-xp-col">
-        <h3>My intervention covers</h3>
+        <h3>Mon intervention porte sur</h3>
         <ul class="ap-list">
-          <li>The <strong>business</strong></li>
-          <li>The <strong>people</strong></li>
-          <li>And their <strong>alignment</strong></li>
+          <li>Le <strong>business</strong></li>
+          <li>L’<strong>humain</strong></li>
+          <li>Et leur <strong>alignement</strong></li>
         </ul>
       </div>
     </div>
@@ -362,74 +369,89 @@ footer{padding:28px 56px}
 </div>
 
 <!-- LOGOS -->
-<div class="ap-logos"><p class="ap-logos-title">They trusted me</p><img src="logos-clients.png" alt="BetterIsMore clients" style="width:100%;max-width:900px;display:block;margin:0 auto"></div>
+<div class="ap-logos"><p class="ap-logos-title">Ils m'ont fait confiance</p><img src="logos-clients.png" alt="Clients BetterIsMore" style="width:100%;max-width:900px;display:block;margin:0 auto"></div>
 
 <!-- GAINS -->
 <div class="ap-sec white">
   <div class="ap-inner">
-    <p class="stag" style="margin-bottom:8px">Concrete results</p>
-    <h2 class="ap-h2">What your organisation gains concretely</h2>
-    <p class="ap-p" style="margin-bottom:20px">My approach does not just improve. It structures <strong>controlled growth</strong>.</p>
+    <p class="stag" style="margin-bottom:8px">Résultats concrets</p>
+    <h2 class="ap-h2">Ce que votre organisation gagne concrètement</h2>
+    <p class="ap-p" style="margin-bottom:20px">Mon approche ne se limite pas à améliorer. Elle structure une <strong>croissance maîtrisée</strong>.</p>
     <div class="ap-gains">
-      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><p class="ap-gain-t">Better predictability</p><p class="ap-gain-d">Reliable forecasts to steer your activity with precision</p></div></div>
-      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><div><p class="ap-gain-t">Clear business visibility</p><p class="ap-gain-d">Actionable indicators: CRM, conversion, opportunities, risks</p></div></div>
-      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><p class="ap-gain-t">Estimate of your real potential</p><p class="ap-gain-d">A clear view of what you can generate — and how to get there</p></div></div>
-      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div><p class="ap-gain-t">Adapting to market changes</p><p class="ap-gain-d">Anticipate shifts and adjust your commercial strategy</p></div></div>
-      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><p class="ap-gain-t">A high-performing sales team</p><p class="ap-gain-d">Motivated, structured, focused on the right levers</p></div></div>
+      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><p class="ap-gain-t">Meilleure prévisibilité</p><p class="ap-gain-d">Des projections fiables pour piloter votre activité avec précision</p></div></div>
+      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><div><p class="ap-gain-t">Visibilité claire de votre business</p><p class="ap-gain-d">Indicateurs exploitables : CRM, conversion, opportunités, risques</p></div></div>
+      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><p class="ap-gain-t">Estimation de votre potentiel réel</p><p class="ap-gain-d">Une vision claire de ce que vous pouvez générer — et comment y parvenir</p></div></div>
+      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div><p class="ap-gain-t">Adaptation aux évolutions du marché</p><p class="ap-gain-d">Anticipez les changements et ajustez votre stratégie commerciale</p></div></div>
+      <div class="ap-gain"><div class="ap-gain-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><p class="ap-gain-t">Une équipe commerciale performante</p><p class="ap-gain-d">Motivée, structurée, focalisée sur les bons leviers</p></div></div>
     </div>
   </div>
 </div>
 
-<!-- FUNDAMENTALS -->
+<!-- FONDAMENTAUX -->
 <div class="ap-sec muted">
   <div class="ap-inner">
-    <p class="stag" style="margin-bottom:8px">Fundamentals</p>
-    <h2 class="ap-h2">Structuring the fundamentals of commercial excellence</h2>
-    <p class="ap-p" style="margin-bottom:20px">To deliver lasting results, we strengthen together:</p>
+    <p class="stag" style="margin-bottom:8px">Fondamentaux</p>
+    <h2 class="ap-h2">Structurer les fondamentaux de l’excellence commerciale</h2>
+    <p class="ap-p" style="margin-bottom:20px">Pour produire des résultats durables, nous renfonçons ensemble :</p>
     <div class="ap-3col">
-      <div class="ap-card"><p class="ap-card-t">Commercial approach</p><p class="ap-card-d">Methods, tools and strategy tailored to your reality</p></div>
-      <div class="ap-card"><p class="ap-card-t">Collaboration</p><p class="ap-card-d">Team alignment and stronger client relationships</p></div>
-      <div class="ap-card"><p class="ap-card-t">Commercial culture</p><p class="ap-card-d">Engagement, momentum and collective performance</p></div>
+      <div class="ap-card"><p class="ap-card-t">L’approche commerciale</p><p class="ap-card-d">Méthodes, outils et stratégie adaptés à votre réalité</p></div>
+      <div class="ap-card"><p class="ap-card-t">La collaboration</p><p class="ap-card-d">Alignement entre équipes et relation client renforcée</p></div>
+      <div class="ap-card"><p class="ap-card-t">La culture commerciale</p><p class="ap-card-d">Engagement, dynamique et performance collective</p></div>
     </div>
   </div>
 </div>
 
-<!-- PHILOSOPHY -->
+<!-- PHILOSOPHIE -->
 <div class="ap-sec dark ap-dark">
   <div class="ap-inner">
-    <p class="stag" style="margin-bottom:8px;color:rgba(255,255,255,0.3)">Philosophy</p>
-    <h2 class="ap-h2" style="color:#fff;margin-bottom:6px">A simple philosophy: <em style="color:var(--orange);font-style:italic">Better is more</em></h2>
-    <p class="ap-p">The best-performing companies don’t try to do <strong style="color:#fff">more</strong>. They focus on doing things <strong style="color:var(--orange)">better</strong>.</p>
+    <p class="stag" style="margin-bottom:8px;color:rgba(255,255,255,0.3)">Philosophie</p>
+    <h2 class="ap-h2" style="color:#fff;margin-bottom:6px">Une philosophie simple : <em style="color:var(--orange);font-style:italic">Better is more</em></h2>
+    <p class="ap-p">Les entreprises les plus performantes ne cherchent pas à faire <strong style="color:#fff">plus</strong>. Elles cherchent à faire <strong style="color:var(--orange)">mieux</strong>.</p>
     <div class="ap-phil" style="margin-top:20px">
-      <div class="ap-phil-item"><div class="ap-phil-dot"></div><span class="ap-phil-txt">Less dispersion</span></div>
-      <div class="ap-phil-item"><div class="ap-phil-dot"></div><span class="ap-phil-txt">More efficiency</span></div>
-      <div class="ap-phil-item"><div class="ap-phil-dot"></div><span class="ap-phil-txt">More impact</span></div>
+      <div class="ap-phil-item"><div class="ap-phil-dot"></div><span class="ap-phil-txt">Moins de dispersion</span></div>
+      <div class="ap-phil-item"><div class="ap-phil-dot"></div><span class="ap-phil-txt">Plus d’efficacité</span></div>
+      <div class="ap-phil-item"><div class="ap-phil-dot"></div><span class="ap-phil-txt">Plus d’impact</span></div>
     </div>
   </div>
 </div>
 
 <!-- CTA -->
 <section class="ap-cta">
-  <h2>Ready to unlock your<br><em>untapped potential</em>?</h2>
-  <p class="sub">Book 30 minutes to:</p>
+  <h2>Prêt à révéler votre<br><em>potentiel inexploité</em>&nbsp;?</h2>
+  <p class="sub">Réservez 30 minutes pour :</p>
   <ul class="ap-cta-list">
-    <li>Identify your quick wins</li>
-    <li>Assess your real potential</li>
-    <li>Lay the groundwork for a concrete action plan</li>
+    <li>Identifier vos quick wins</li>
+    <li>Évaluer votre potentiel réel</li>
+    <li>Poser les bases d’un plan d’action concret</li>
   </ul>
-  <a class="ap-btn" href="https://calendly.com/better-is-more">From latent potential to measurable results &#x2197;</a>
+  <a class="ap-btn" href="https://calendly.com/better-is-more">Passez d’un potentiel latent à des résultats mesurables &#x2197;</a>
 </section>
 
-<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; B2B Commercial Excellence</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Book a call</a> <a href="https://www.betterismore.eu/fr/blog-2/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Read the blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="/cdn-cgi/l/email-protection#f89b97968c999b8cb89a9d8c8c9d8a918b95978a9dd69d8d">&#9993; <span class="__cf_email__" data-cfemail="086b67667c696b7c486a6d7c7c6d7a617b65677a6d266d7d">[email&#160;protected]</span></a></div></footer>
+<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; Excellence commerciale B2B</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Prendre rendez-vous</a> <a href="blog-fr.html" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Lire le blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="/cdn-cgi/l/email-protection#c6a5a9a8b2a7a5b286a4a3b2b2a3b4afb5aba9b4a3e8a3b3">&#9993; <span class="__cf_email__" data-cfemail="ef8c80819b8e8c9baf8d8a9b9b8a9d869c82809d8ac18a9a">[email&#160;protected]</span></a></div></footer>
 <div id="cdot"></div>
 <div id="cring"></div>
 <script>(function(){
+var isTouch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
 var cd=document.getElementById('cdot'),cr=document.getElementById('cring');
+if(isTouch){cd.style.display='none';cr.style.display='none';}
 document.addEventListener('mousemove',function(e){cd.style.left=e.clientX+'px';cd.style.top=e.clientY+'px';cr.style.left=e.clientX+'px';cr.style.top=e.clientY+'px';});
 document.querySelectorAll('a,button').forEach(function(x){x.addEventListener('mouseenter',function(){cd.classList.add('h');cr.classList.add('h');});x.addEventListener('mouseleave',function(){cd.classList.remove('h');cr.classList.remove('h');});});
 var hbg=document.getElementById('hbg'),mob=document.getElementById('nav-mobile');
 hbg.addEventListener('click',function(){hbg.classList.toggle('open');mob.classList.toggle('open');});
-document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};
+document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});window.toggleTheme=function(){
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
+  var next=dark?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  document.getElementById('btn-theme').textContent=next==='dark'?'☀️':'🌙';
+  localStorage.setItem('theme',next);
+};
+// Init thème depuis localStorage
+(function(){
+  var t=localStorage.getItem('theme')||'light';
+  document.documentElement.setAttribute('data-theme',t);
+  var b=document.getElementById('btn-theme');
+  if(b)b.textContent=t==='dark'?'☀️':'🌙';
+})();
 })();
 </script>
 </body>

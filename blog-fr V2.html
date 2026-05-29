@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Newsletter — BetterIsMore</title>
+<title>Blog — BetterIsMore</title>
 <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Open+Sans:wght@300;400;500&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#10356D;--orange:#F2A23A;--ink:#10356D;--ink2:#2A3A5C;--ink3:#6B7A99;--ink4:#A8B4CC;--bg:#F7F6F2;--bg2:#E8E6DC;--white:#FFFFFF;--offwhite:#F0EEE5;--line:rgba(16,53,109,0.1);--fh:'Montserrat',sans-serif;--fb:'Open Sans',sans-serif}
@@ -81,7 +81,7 @@ h1 em{color:var(--orange);font-style:italic}
 .flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .flip-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
 @media(max-width:767px){.flip-grid-2>.fw:last-child:nth-child(odd){grid-column:1/-1}}
-.fw{height:160px;perspective:900px}
+.fw{height:200px;perspective:900px}
 .fi{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.4,0,.2,1)}
 .fw:hover .fi,.fw.flipped .fi{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:6px;padding:16px;overflow:hidden}
@@ -151,224 +151,198 @@ footer{padding:28px 56px}
 .rot-band{padding:16px 56px}
 }
 
-/* ── NEWSLETTER PAGE ── */
-.nl-hero{background:var(--navy);padding:56px 20px 48px;text-align:center}
-.nl-hero-inner{max-width:680px;margin:0 auto}
-.nl-hero h1{font-family:var(--fh);font-size:clamp(24px,4.5vw,40px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-bottom:20px}
-.nl-hero h1 em{color:var(--orange);font-style:italic}
-.nl-hero .sub{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;font-weight:300;margin-bottom:28px;text-align:center}
-.nl-gift{background:rgba(242,162,58,0.12);border:1px solid rgba(242,162,58,0.3);border-radius:6px;padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6;font-style:italic;text-align:center;max-width:560px;margin:0 auto}
-.nl-gift strong{color:var(--orange);font-style:normal}
-
-/* FORM SECTION */
-.nl-form-sec{background:var(--white);padding:48px 20px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
-.nl-form-wrap{display:flex;flex-direction:column;gap:40px;max-width:900px;margin:0 auto}
-.nl-form-col h3{font-family:var(--fh);font-size:14px;font-weight:800;color:var(--navy);margin-bottom:20px;text-transform:uppercase;letter-spacing:1px}
-.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-.field label{font-size:11px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:1.5px;font-family:var(--fh)}
-.field input{border:1px solid var(--line);border-radius:4px;padding:12px 14px;font-size:14px;color:var(--ink);background:var(--bg);font-family:var(--fb);outline:none;transition:border-color .2s;width:100%;box-sizing:border-box}
-.field input:focus{border-color:var(--orange)}
-.nl-submit{background:var(--orange);color:#fff;padding:14px 28px;border-radius:4px;font-size:14px;font-weight:700;border:none;font-family:var(--fh);width:100%;cursor:none;transition:background .2s;margin-top:4px;display:block;text-align:center}
-.nl-submit:hover{background:var(--navy)}
-
-/* VIDEO */
-.nl-video{
-  background:var(--navy);
-  border-radius:6px;
-  aspect-ratio:9/16;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-  max-width:340px;
-  margin:0 auto;
+@media(max-width:767px){
+  .fw{height:260px}
+  .b-tag{font-size:11px;line-height:1.3;gap:6px}
+  .b-tags{gap:4px}
+  .b-tags p{font-size:10px;margin-bottom:5px}
 }
 
-.nl-video video{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-}
-
-/* CONTENT */
-.nl-content{background:var(--bg);padding:48px 20px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
-.nl-content-inner{max-width:680px;margin:0 auto}
-.nl-sec{margin-bottom:36px}
-.nl-sec h2{font-family:var(--fh);font-size:clamp(16px,2.5vw,22px);font-weight:800;color:var(--navy);margin-bottom:12px;line-height:1.2}
-.nl-sec p{font-size:14px;color:var(--ink2);line-height:1.8;font-weight:300;margin-bottom:10px}
-.nl-sec p strong{font-weight:700;color:var(--ink)}
-.nl-label{font-size:12px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;font-family:var(--fh);margin-bottom:10px}
-.nl-list{list-style:none;padding:0;margin:0 0 4px}
-.nl-list li{font-size:14px;color:var(--ink2);line-height:1.7;padding:8px 0;border-top:1px solid var(--line);display:flex;gap:10px;align-items:flex-start;font-weight:300}
-.nl-list li:last-child{border-bottom:1px solid var(--line)}
-.nl-list li::before{content:'\2192';color:var(--orange);flex-shrink:0;font-size:11px;margin-top:4px}
-.nl-list.avoid li::before{content:'\00d7';color:var(--ink4)}
-.nl-list li strong{font-weight:700;color:var(--ink)}
-.nl-sign{margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
-.nl-sign p{font-size:14px;color:var(--ink2);line-height:1.8;font-weight:300;margin-bottom:8px}
-.nl-sign .sig-name{font-family:var(--fh);font-weight:800;color:var(--navy);font-size:15px;margin-top:16px;margin-bottom:2px}
-.nl-sign .sig-role{font-size:12px;color:var(--ink3)}
-
-/* DESKTOP */
+/* ── BLOG SECTION ── */
+.blog-sec{background:var(--bg);padding:56px 20px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.blog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.blog-header h2{font-family:var(--fh);font-size:clamp(18px,3vw,26px);font-weight:800;color:var(--navy);letter-spacing:-0.3px}
+.blog-header a{font-size:12px;color:var(--ink3);text-decoration:none;font-family:var(--fh);font-weight:600;white-space:nowrap;transition:color .2s}
+.blog-header a:hover{color:var(--orange)}
+.blog-grid{display:flex;flex-direction:column;gap:12px}
+.blog-card{background:var(--white);border:1px solid var(--line);border-radius:6px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-color .2s}
+.blog-card:hover{border-color:var(--orange)}
+.blog-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--bg2)}
+.blog-img-ph{width:100%;aspect-ratio:16/9;background:var(--bg2);display:flex;align-items:center;justify-content:center}
+.blog-img-ph svg{width:32px;height:32px;stroke:var(--ink4);fill:none;stroke-width:1}
+.blog-body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.blog-cat{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;font-family:var(--fh)}
+.blog-title{font-family:var(--fh);font-size:15px;font-weight:800;color:var(--navy);line-height:1.3}
+.blog-excerpt{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.6;flex:1}
+.blog-date{font-size:11px;color:var(--ink4);font-weight:300}
+.blog-loading{text-align:center;padding:40px;font-size:13px;color:var(--ink3)}
 @media(min-width:768px){
-  .nl-hero{padding:88px 56px 72px}
-  .nl-form-sec{padding:72px 56px}
-  .nl-form-wrap{flex-direction:row;align-items:flex-start;gap:56px}
-  .nl-form-col{flex:1}
-  .nl-video-col{flex:1}
-  .nl-submit{width:auto}
-  .nl-content{padding:72px 56px}
+  .blog-sec{padding:72px 56px}
+  .blog-grid{flex-direction:row;gap:16px}
+  .blog-card{flex:1}
 }
 
-@media(hover:none),(-moz-touch-enabled:1),(pointer:coarse){
-  #cdot,#cring{display:none!important}
-  body,a,button,.fw{cursor:auto!important}
+/* ── BLOG PAGE ── */
+.blog-hero{background:var(--navy);padding:48px 20px 40px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box}
+.blog-hero h1{font-family:var(--fh);font-size:clamp(26px,4.5vw,40px);font-weight:800;color:#fff;letter-spacing:-0.5px;margin-bottom:8px}
+.blog-hero p{font-size:14px;color:rgba(255,255,255,0.45);font-weight:300}
+.blog-filters{background:var(--white);border-bottom:1px solid var(--line);padding:0 20px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box;overflow-x:auto;display:flex;gap:0}
+.filter-btn{background:none;border:none;border-bottom:2px solid transparent;padding:14px 18px;font-size:13px;font-weight:600;color:var(--ink3);font-family:var(--fh);white-space:nowrap;transition:all .2s;cursor:none}
+.filter-btn:hover{color:var(--navy)}
+.filter-btn.active{color:var(--orange);border-bottom-color:var(--orange)}
+.blog-main{max-width:1440px;margin:0 auto;padding:40px 20px;width:100%;box-sizing:border-box}
+.blog-grid-page{display:grid;grid-template-columns:1fr;gap:16px}
+.blog-card-page{background:var(--white);border:1px solid var(--line);border-radius:6px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-color .2s}
+.blog-card-page:hover{border-color:var(--orange)}
+.blog-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--bg2)}
+.blog-card-img-ph{width:100%;aspect-ratio:16/9;background:var(--bg2);display:flex;align-items:center;justify-content:center}
+.blog-card-img-ph svg{width:32px;height:32px;stroke:var(--ink4);fill:none;stroke-width:1}
+.blog-card-body{padding:18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.blog-card-cat{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;font-family:var(--fh)}
+.blog-card-title{font-family:var(--fh);font-size:15px;font-weight:800;color:var(--navy);line-height:1.3}
+.blog-card-excerpt{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.6;flex:1}
+.blog-card-date{font-size:11px;color:var(--ink4);font-weight:300}
+.blog-loading-msg{text-align:center;padding:60px 20px;font-size:14px;color:var(--ink3)}
+.load-more-wrap{text-align:center;margin-top:32px}
+.load-more-btn{background:none;border:1px solid var(--line);border-radius:4px;padding:12px 32px;font-size:13px;font-weight:600;color:var(--ink3);font-family:var(--fh);transition:all .2s;cursor:none}
+.load-more-btn:hover{border-color:var(--orange);color:var(--orange)}
+.load-more-btn:disabled{opacity:.4}
+@media(min-width:768px){
+  .blog-hero{padding:64px 56px 52px}
+  .blog-filters{padding:0 56px}
+  .blog-main{padding:56px 56px}
+  .blog-grid-page{grid-template-columns:repeat(3,1fr);gap:20px}
 }
-
-/* QUESTION CARDS */
-.nl-cards{display:grid;grid-template-columns:1fr;gap:8px;margin-top:16px}
-.nl-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
-.nl-card-icon{width:28px;height:28px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:800;font-family:var(--fh)}
-.nl-card-icon.orange{background:rgba(242,162,58,0.12);color:var(--orange)}
-.nl-card-icon.red{background:rgba(180,60,60,0.08);color:#b43c3c}
-.nl-card-t{font-family:var(--fh);font-size:13px;font-weight:800;color:var(--navy);margin-bottom:2px;line-height:1.3}
-.nl-card-d{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.5}
-@media(min-width:768px){.nl-cards{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="logo" href="index-en.html">BetterIs<em>More</em></a>
+  <a class="logo" href="index.html">BetterIs<em>More</em></a>
   <div class="nav-links">
-    <a href="index-en.html">Home</a>
-    <a href="index-en.html#approche">Approach</a>
-    <a href="newsletter-en.html">Newsletter</a>
-	<a href="https://www.betterismore.eu/blog/">Blog</a>
-    <a href="https://calendly.com/better-is-more" class="nav-cta">Boost your performance &#x2197;</a>
+    <a href="index.html">Accueil</a>
+    <a href="approche.html">Approche</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="blog-fr.html">Blog</a>
+    <a href="https://calendly.com/better-is-more" class="nav-cta">Boostez votre performance &#x2197;</a>
   </div>
   <div class="nav-right">
-    <a class="lang-btn" href="newsletter.html">&#127467;&#127479; FR</a>
-    <a class="lang-btn active" href="newsletter-en.html">&#127468;&#127463; EN</a>
+    <a class="lang-btn active" href="blog-fr.html">&#127467;&#127479; FR</a>
+    <a class="lang-btn" href="blog.html">&#127468;&#127463; EN</a>
     <button class="theme-btn" id="btn-theme" onclick="toggleTheme()">&#127769;</button>
     <button class="hamburger" id="hbg"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div id="nav-mobile" class="nav-mobile">
-  <a href="index-en.html">Home</a>
-  <a href="index-en.html#approche">Approach</a>
-  <a href="newsletter-en.html">Newsletter</a>
-  <a href="https://www.betterismore.eu/blog/">Blog</a>
-  <a href="https://calendly.com/better-is-more" class="mob-cta">Boost your performance &#x2197;</a>
+  <a href="index.html">Accueil</a>
+  <a href="approche.html">Approche</a>
+  <a href="newsletter.html">Newsletter</a>
+  <a href="blog-fr.html">Blog</a>
+  <a href="https://calendly.com/better-is-more" class="mob-cta">Boostez votre performance &#x2197;</a>
 </div>
 
-<!-- HERO -->
-<section class="nl-hero">
-  <div class="nl-hero-inner">
-    <p class="eyebrow" style="justify-content:center">Newsletter</p>
-    <h1>Success is not driven by having more information, but by what actually <em>works in the field</em></h1>
-    <p class="sub">In this newsletter, I share over 25 years of experience in business transformation and team leadership, together with the insights I gain every day from working closely with the professionals I support. No theory. Only concrete, field-tested insights you can apply immediately.</p>
-    <div class="nl-gift"><strong>Welcome gift:</strong> “What separates great leaders from good managers — 7 Practical Steps to Engage Immediately” (14-page booklet)</div>
-  </div>
-</section>
-
-<!-- FORM + VIDEO -->
-<div class="nl-form-sec">
-  <div class="nl-form-wrap">
-
-    <!-- FORM -->
-    <div class="nl-form-col">
-      <h3>Subscribe</h3>
-      <form action="#" method="POST">
-        <div class="field">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="FNAME" placeholder="First Name">
-        </div>
-        <div class="field">
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="LNAME" placeholder="Last Name">
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="EMAIL" placeholder="your@email.com" required>
-        </div>
-        <button type="submit" class="nl-submit">Subscribe ↗</button>
-      </form>
-    </div>
-
-    <!-- VIDEO -->
-    <div class="nl-video-col">
-      <h3>Why subscribe?</h3>
-      <div class="nl-video">
-  <video 
-    src="newsletter-en.mp4" 
-    controls 
-    playsinline 
-    style="width:100%; height:100%; object-fit:cover; border-radius:6px;">
-  </video>
-</div>
-    </div>
-
-  </div>
+<div class="blog-hero">
+  <p class="eyebrow">Blog</p>
+  <h1>Le blog BetterIsMore</h1>
+  <p>Insights terrain sur la performance commerciale, le leadership et le management.</p>
 </div>
 
-<!-- CONTENT -->
-<section class="nl-content">
-  <div class="nl-content-inner">
+<div class="blog-filters">
+  <button class="filter-btn active" data-cat="0">Tous</button><button class="filter-btn" data-cat="40">CRM</button><button class="filter-btn" data-cat="7">Leadership</button><button class="filter-btn" data-cat="1">Sales effectiveness</button><button class="filter-btn" data-cat="21">Talent</button>
+</div>
 
-    <div class="nl-sec">
-      <h2>Why another newsletter?</h2>
-      <p>…when a Google search, or a few minutes with AI, can already generate endless content?</p>
-      <p>The answer is simple. Because the executives and sales leaders I meet every week are not looking for more information. They’re looking for <strong>proven solutions</strong>, grounded in <strong>operational reality</strong>, and capable of delivering <strong>measurable ROI</strong>.</p>
-    </div>
-
-    <div class="nl-sec">
-      <h2>This newsletter is for you if you’re asking questions like:</h2>
-      <p class="nl-label" style="margin-bottom:12px">How to:</p>
-      <div class="nl-cards">
-        <div class="nl-card"><div class="nl-card-icon orange">↑</div><div><p class="nl-card-t">Increase revenue and margin</p><p class="nl-card-d">Without hiring more salespeople</p></div></div>
-        <div class="nl-card"><div class="nl-card-icon orange">↔</div><div><p class="nl-card-t">Personal &amp; team development</p><p class="nl-card-d">Align your own growth with that of your team</p></div></div>
-        <div class="nl-card"><div class="nl-card-icon orange">⚡</div><div><p class="nl-card-t">Sales productivity</p><p class="nl-card-d">Better performance without burning out your people</p></div></div>
-        <div class="nl-card"><div class="nl-card-icon orange">⭐</div><div><p class="nl-card-t">True business partner</p><p class="nl-card-d">Build real value relationships with your clients</p></div></div>
-        <div class="nl-card"><div class="nl-card-icon orange">■</div><div><p class="nl-card-t">CRM as a strategic asset</p><p class="nl-card-d">Rather than a painful obligation</p></div></div>
-        <div class="nl-card"><div class="nl-card-icon orange">↺</div><div><p class="nl-card-t">Adapt your sales practices</p><p class="nl-card-d">To evolving market conditions</p></div></div>
-        <div class="nl-card"><div class="nl-card-icon orange">AI</div><div><p class="nl-card-t">Leverage AI</p><p class="nl-card-d">Without turning your salespeople into prompt engineers</p></div></div>
-      </div>
-    </div>
-
-    <div class="nl-sec">
-      <p class="nl-label" style="margin-bottom:12px">Without:</p>
-      <div class="nl-cards">
-        <div class="nl-card"><div class="nl-card-icon red">×</div><div><p class="nl-card-t">Tactical fixes</p><p class="nl-card-d">That create confusion without lasting impact</p></div></div>
-        <div class="nl-card"><div class="nl-card-icon red">×</div><div><p class="nl-card-t">Generic recommendations</p><p class="nl-card-d">Too far removed from your reality to be truly actionable</p></div></div>
-        <div class="nl-card"><div class="nl-card-icon red">×</div><div><p class="nl-card-t">Complex transformation programs</p><p class="nl-card-d">Disconnected from day-to-day constraints</p></div></div>
-      </div>
-    </div>
-
-    <div class="nl-sign">
-      <p>I’ve lived these challenges from the inside, on the ground, with teams, under real performance pressure. And I’ve seen that often modest actions can generate significant ROI, provided they focus on <strong>fundamentals</strong> rather than symptoms.</p>
-      <p>This newsletter is an extension of that experience.</p>
-      <p><em>Sales excellence is not just my profession. It’s a passion.</em></p>
-      <p>Enjoy the read.</p>
-      <p class="sig-name">Lounas Aliouche</p>
-      <p class="sig-role">BetterIsMore</p>
-    </div>
-
+<main class="blog-main">
+  <div class="blog-grid-page" id="blog-page-grid">
+    <p class="blog-loading-msg">Chargement...</p>
   </div>
-</section>
+  <div class="load-more-wrap">
+    <button class="load-more-btn" id="load-more" style="display:none">Voir plus d’articles</button>
+  </div>
+</main>
 
-<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; B2B Commercial Excellence</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Book a call</a> <a href="https://www.betterismore.eu/blog" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Read the blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="/cdn-cgi/l/email-protection#d8bbb7b6acb9bbac98babdacacbdaab1abb5b7aabdf6bdad">&#9993; <span class="__cf_email__" data-cfemail="a6c5c9c8d2c7c5d2e6c4c3d2d2c3d4cfd5cbc9d4c388c3d3">[email&#160;protected]</span></a></div></footer>
+<footer style="flex-direction:column;gap:14px;padding:28px 20px 24px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box"><div style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="fl" href="#">BetterIs<em>More</em></a><p class="fc">&#169; 2026 BetterIsMore &#8212; Excellence commerciale B2B</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:14px"><a href="https://calendly.com/better-is-more" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128197; Prendre rendez-vous</a> <a href="https://betterismore.blog/fr" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128214; Lire le blog</a> <a href="https://www.youtube.com/@betterismore" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#9654; YouTube</a> <a href="https://www.linkedin.com/in/laliouche/" style="font-size:12px;color:var(--navy);text-decoration:none;font-family:var(--fh);font-weight:600">&#128100; LinkedIn</a> <a href="mailto:contact@betterismore.eu">&#9993; contact@betterismore.eu</a></div></footer>
 
 <div id="cdot"></div>
 <div id="cring"></div>
 <script>(function(){
-var isTouch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
 var cd=document.getElementById('cdot'),cr=document.getElementById('cring');
-if(isTouch){cd.style.display='none';cr.style.display='none';return;}
+var isTouch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+if(isTouch){if(cd)cd.style.display='none';if(cr)cr.style.display='none';}
+else{
 document.addEventListener('mousemove',function(e){cd.style.left=e.clientX+'px';cd.style.top=e.clientY+'px';cr.style.left=e.clientX+'px';cr.style.top=e.clientY+'px';});
 document.querySelectorAll('a,button').forEach(function(x){x.addEventListener('mouseenter',function(){cd.classList.add('h');cr.classList.add('h');});x.addEventListener('mouseleave',function(){cd.classList.remove('h');cr.classList.remove('h');});});
+}
 var hbg=document.getElementById('hbg'),mob=document.getElementById('nav-mobile');
 hbg.addEventListener('click',function(){hbg.classList.toggle('open');mob.classList.toggle('open');});
-document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};})();
-</script>
+document.querySelectorAll('#nav-mobile a,.mob-cta').forEach(function(x){x.addEventListener('click',function(){hbg.classList.remove('open');mob.classList.remove('open');});});
+window.toggleTheme=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';};
+
+/* BLOG PAGE JS */
+var BASE='https://betterismore.blog/wp-json/wp/v2/';
+var LANG='&lang=fr';
+var PER_PAGE=9;
+var currentCat=0,currentPage=1,isLoading=false,hasMore=true;
+var grid=document.getElementById('blog-page-grid');
+var loadBtn=document.getElementById('load-more');
+var catMap={40:'CRM',7:'Leadership',1:'Sales effectiveness',21:'Talent'};
+
+function getImg(p){
+  var img='';
+  try{img=p._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url;}catch(e){}
+  if(!img){try{img=p._embedded['wp:featuredmedia'][0].source_url;}catch(e){}}
+  return img;
+}
+function getCatName(p){
+  if(!p.categories||!p.categories.length)return'Article';
+  return catMap[p.categories[0]]||'Article';
+}
+function makeCard(p){
+  var title=p.title.rendered.replace(/<[^>]+>/g,'');
+  var excerpt=p.excerpt.rendered.replace(/<[^>]+>/g,'').slice(0,120).trim()+'…';
+  var date=new Date(p.date).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+  var img=getImg(p);
+  var cat=getCatName(p);
+  var imgHtml=img
+    ?'<img class="blog-card-img" src="'+img+'" alt="'+title+'" loading="lazy">'
+    :'<div class="blog-card-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>';
+  return'<a class="blog-card-page" href="'+p.link+'" target="_blank" rel="noopener">'+imgHtml+'<div class="blog-card-body"><span class="blog-card-cat">'+cat+'</span><p class="blog-card-title">'+title+'</p><p class="blog-card-excerpt">'+excerpt+'</p><span class="blog-card-date">'+date+'</span></div></a>';
+}
+function loadPosts(reset){
+  if(isLoading)return;
+  isLoading=true;
+  if(loadBtn)loadBtn.disabled=true;
+  if(reset){currentPage=1;hasMore=true;grid.innerHTML='<p class="blog-loading-msg">Chargement…</p>';}
+  var url=BASE+'posts?per_page='+PER_PAGE+'&page='+currentPage+'&_embed'+LANG;
+  if(currentCat)url+='&categories='+currentCat;
+  fetch(url)
+    .then(function(r){
+      var total=parseInt(r.headers.get('X-WP-TotalPages')||'1');
+      hasMore=currentPage<total;
+      return r.json();
+    })
+    .then(function(posts){
+      if(reset)grid.innerHTML='';
+      if(!posts.length&&currentPage===1){grid.innerHTML='<p class="blog-loading-msg">Aucun article trouvé.</p>';hasMore=false;}
+      else{posts.forEach(function(p){grid.insertAdjacentHTML('beforeend',makeCard(p));});}
+      currentPage++;
+      isLoading=false;
+      if(loadBtn){loadBtn.disabled=false;loadBtn.style.display=hasMore?'inline-block':'none';}
+    })
+    .catch(function(){
+      grid.innerHTML='<p class="blog-loading-msg">Articles indisponibles.</p>';
+      isLoading=false;
+    });
+}
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    currentCat=parseInt(btn.dataset.cat)||0;
+    loadPosts(true);
+  });
+});
+if(loadBtn)loadBtn.addEventListener('click',function(){loadPosts(false);});
+loadPosts(true);
+})();</script>
 </body>
 </html>
