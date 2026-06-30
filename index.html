@@ -210,21 +210,26 @@ footer{padding:28px 56px}
 .srv-fw.flipped .srv-front{pointer-events:none}
 .srv-front{background:var(--navy);padding:32px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(255,255,255,0.06)}
 .srv-back{background:var(--offwhite);border:1px solid var(--line);transform:rotateY(180deg);padding:24px;display:flex;flex-direction:column;justify-content:space-between}
-@media(max-width:767px){.srv-back{transform:none;display:none}.srv-fw.flipped .srv-back{display:flex}.srv-fw.flipped .srv-front{display:none}}
+@media(max-width:767px){.srv-back{transform:none!important;display:none}.srv-fw.flipped .srv-back{display:flex}.srv-fw.flipped .srv-front{display:none}}
 .srv-tag{display:inline-block;font-size:10px;letter-spacing:2px;font-weight:700;text-transform:uppercase;color:var(--orange);border:1px solid rgba(242,162,58,0.3);border-radius:20px;padding:3px 10px;font-family:var(--fh);margin-bottom:16px}
 .srv-tag-mentoring{color:#7AB8F5;border-color:rgba(122,184,245,0.3)}
 .srv-title{font-family:var(--fh);font-size:clamp(18px,2vw,24px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px}
-.srv-tagline{font-size:13px;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.6;flex:1}
+.srv-tagline{font-size:14px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.65;flex:1}
 .srv-tagline em{color:rgba(255,255,255,0.7);font-style:italic}
 .srv-hint{font-size:11px;color:rgba(255,255,255,0.25);font-weight:300;letter-spacing:0.5px;margin-top:16px;display:block}
 .srv-back-inner{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;margin-bottom:16px}
 @media(max-width:480px){.srv-back-inner{grid-template-columns:1fr}}
-.srv-col-title{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;font-family:var(--fh);margin-bottom:10px}
+.srv-col-title{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;font-family:var(--fh);margin-bottom:10px}
 .srv-list{list-style:none;display:flex;flex-direction:column;gap:7px}
-.srv-list li{font-size:12px;color:var(--ink2);font-weight:300;line-height:1.4;display:flex;gap:8px;align-items:flex-start}
+.srv-list li{font-size:13px;color:var(--ink2);font-weight:400;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
 .srv-list li::before{content:"✓";color:var(--orange);font-weight:700;font-size:11px;flex-shrink:0;margin-top:1px}
 .srv-cta{display:block;background:var(--orange);color:#fff;text-align:center;padding:12px 20px;border-radius:4px;font-size:13px;font-weight:700;font-family:var(--fh);text-decoration:none;transition:background .2s}
 .srv-cta:hover{background:var(--navy)}
+.srv-icon{width:44px;height:44px;border-radius:50%;background:rgba(242,162,58,0.1);border:1px solid rgba(242,162,58,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.srv-icon svg{width:20px;height:20px;stroke:var(--orange);fill:none;stroke-width:1.5}
+.srv-icon-mentoring{background:rgba(122,184,245,0.1);border-color:rgba(122,184,245,0.25)}
+.srv-icon-mentoring svg{stroke:#7AB8F5}
+
 </style>
 </head>
 <body>
@@ -334,6 +339,7 @@ taux d’occupation, en adhérant à la philosophie selon laquelle <strong style
     <div class="srv-fw" onclick="this.classList.toggle('flipped')">
       <div class="srv-fi">
         <div class="srv-face srv-front">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><line x1="9" y1="9" x2="9" y2="9.01"/><line x1="9" y1="12" x2="9" y2="12.01"/><line x1="9" y1="15" x2="9" y2="15.01"/></svg></div>
           <div class="srv-tag">Diagnostic</div>
           <p class="srv-title">Diagnostic<br>Grands Comptes</p>
           <p class="srv-tagline"><em>Arrêtez de gérer vos comptes.<br>Commencez à les faire grandir.</em></p>
@@ -368,6 +374,7 @@ taux d’occupation, en adhérant à la philosophie selon laquelle <strong style
     <div class="srv-fw" onclick="this.classList.toggle('flipped')">
       <div class="srv-fi">
         <div class="srv-face srv-front">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
           <div class="srv-tag">Diagnostic</div>
           <p class="srv-title">Diagnostic Performance<br>Commerciale</p>
           <p class="srv-tagline"><em>Augmentez la performance<br>sans recruter.</em></p>
@@ -402,6 +409,7 @@ taux d’occupation, en adhérant à la philosophie selon laquelle <strong style
     <div class="srv-fw" onclick="this.classList.toggle('flipped')">
       <div class="srv-fi">
         <div class="srv-face srv-front">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
           <div class="srv-tag">Diagnostic</div>
           <p class="srv-title">Diagnostic<br>CRM</p>
           <p class="srv-tagline"><em>Votre CRM devrait piloter<br>votre business. Est-ce le cas ?</em></p>
@@ -436,6 +444,7 @@ taux d’occupation, en adhérant à la philosophie selon laquelle <strong style
     <div class="srv-fw" onclick="this.classList.toggle('flipped')">
       <div class="srv-fi">
         <div class="srv-face srv-front">
+          <div class="srv-icon srv-icon-mentoring"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
           <div class="srv-tag srv-tag-mentoring">Mentoring</div>
           <p class="srv-title">Accélération<br>du Leadership</p>
           <p class="srv-tagline"><em>Nouveau rôle, nouveau marché,<br>nouvelle pression. Agissez vite.</em></p>
