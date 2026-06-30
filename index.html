@@ -195,6 +195,44 @@ footer{padding:28px 56px}
 .modal-close:hover{color:var(--navy)}
 .modal-iframe{flex:1;border:none;width:100%}
 .modal-loading-bar{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--white);font-size:13px;color:var(--ink3);font-family:var(--fh)}
+
+/* ── SERVICES FLIPBOX ── */
+.srv-sec{background:var(--white);padding:56px 20px;max-width:1440px;margin:0 auto;width:100%;box-sizing:border-box;border-bottom:1px solid var(--line)}
+@media(min-width:768px){.srv-sec{padding:80px 56px}}
+.srv-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:767px){.srv-grid{grid-template-columns:1fr}}
+.srv-fw{perspective:1200px;cursor:none}
+.srv-fi{width:100%;height:380px;position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+@media(max-width:767px){.srv-fi{height:auto;min-height:340px}.srv-fw.flipped .srv-fi{transform:none!important}}
+.srv-fw.flipped .srv-fi{transform:rotateY(180deg)}
+@media(hover:hover) and (pointer:fine){.srv-fw:hover .srv-fi{transform:rotateY(180deg)}}
+.srv-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;overflow:hidden}
+@media(max-width:767px){.srv-face{position:relative;inset:auto}}
+.srv-fw.flipped .srv-front{pointer-events:none}
+.srv-front{background:var(--navy);padding:32px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(255,255,255,0.06)}
+.srv-back{background:var(--offwhite);border:1px solid var(--line);transform:rotateY(180deg);padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+@media(max-width:767px){.srv-back{transform:none!important;display:none}.srv-fw.flipped .srv-back{display:flex}.srv-fw.flipped .srv-front{display:none}}
+.srv-tag{display:inline-block;font-size:13px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase;color:var(--orange);border:1px solid rgba(242,162,58,0.4);border-radius:20px;padding:5px 14px;font-family:var(--fh);margin-bottom:16px}
+.srv-tag-mentoring{color:#7AB8F5;border-color:rgba(122,184,245,0.3)}
+.srv-title{font-family:var(--fh);font-size:clamp(18px,2vw,24px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px}
+.srv-tagline{font-size:17px;color:rgba(255,255,255,0.7);font-weight:300;line-height:1.6;flex:1}
+.srv-tagline em{color:rgba(255,255,255,0.7);font-style:italic}
+.srv-hint{font-size:13px;color:rgba(255,255,255,0.4);font-weight:400;letter-spacing:0.3px;margin-top:16px;display:flex;align-items:center;gap:6px}
+.srv-hint svg{width:14px;height:14px;stroke:rgba(255,255,255,0.4);fill:none;stroke-width:2;flex-shrink:0}
+.srv-back-inner{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;margin-bottom:16px}
+@media(max-width:480px){.srv-back-inner{grid-template-columns:1fr}}
+.srv-col-title{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;font-family:var(--fh);margin-bottom:10px}
+.srv-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.srv-list li{font-size:13px;color:var(--ink2);font-weight:400;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.srv-list li::before{content:"✓";color:var(--orange);font-weight:700;font-size:11px;flex-shrink:0;margin-top:1px}
+.srv-cta{display:block;background:var(--orange);color:#fff;text-align:center;padding:18px 24px;border-radius:6px;font-size:16px;font-weight:800;font-family:var(--fh);text-decoration:none;transition:background .2s,transform .15s;letter-spacing:0.3px}
+.srv-cta:active{transform:scale(0.98)}
+.srv-cta:hover{background:var(--navy)}
+.srv-icon{width:80px;height:80px;border-radius:50%;background:rgba(242,162,58,0.1);border:1px solid rgba(242,162,58,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.srv-icon svg{width:36px;height:36px;stroke:var(--orange);fill:none;stroke-width:1.5}
+.srv-icon-mentoring{background:rgba(122,184,245,0.1);border-color:rgba(122,184,245,0.25)}
+.srv-icon-mentoring svg{stroke:#7AB8F5}
+
 </style>
 </head>
 <body>
@@ -264,6 +302,156 @@ taux d’occupation, en adhérant à la philosophie selon laquelle <strong style
 <div class="pt"><span class="pt-n">3</span><div><p class="pt-t">Focus sur les fondamentaux, pas sur le bruit</p><p class="pt-d">Traitement des causes, pas des symptômes.</p></div></div></div>
   </div>
 </div>
+<!-- SERVICES FLIPBOX -->
+<section class="srv-sec">
+  <p class="stag" style="margin-bottom:8px">Nos offres</p>
+  <p style="font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:800;letter-spacing:-0.5px;color:var(--navy);margin-bottom:8px">Ce que nous faisons <em style="color:var(--orange);font-style:italic">ensemble</em></p>
+  <p style="font-size:14px;color:var(--ink3);font-weight:300;margin-bottom:32px">Du potentiel aux résultats — gains rapides, fondations solides pour la suite.</p>
+  <div class="srv-grid">
+
+    <div class="srv-fw" onclick="this.classList.toggle('flipped')">
+      <div class="srv-fi">
+        <div class="srv-face srv-front">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><line x1="9" y1="9" x2="9" y2="9.01"/><line x1="9" y1="12" x2="9" y2="12.01"/><line x1="9" y1="15" x2="9" y2="15.01"/></svg></div>
+          <div class="srv-tag">Diagnostic</div>
+          <p class="srv-title">Diagnostic<br>Grands Comptes</p>
+          <p class="srv-tagline"><em>Arrêtez de gérer vos comptes.<br>Commencez à les faire grandir.</em></p>
+          <span class="srv-hint"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg>Survoler / toucher pour découvrir</span>
+        </div>
+        <div class="srv-face srv-back">
+          <div class="srv-back-inner">
+            <div class="srv-col">
+              <p class="srv-col-title">Ce que nous diagnostiquons</p>
+              <ul class="srv-list">
+                <li>Potentiel de revenus inexploité cartographié</li>
+                <li>Risques et opportunités identifiés</li>
+                <li>Framework de planification livré</li>
+                <li>Passer de fournisseur à partenaire</li>
+              </ul>
+            </div>
+            <div class="srv-col">
+              <p class="srv-col-title">Ce que vous recevez</p>
+              <ul class="srv-list">
+                <li>Quick wins à fort ROI actionnables</li>
+                <li>Améliorations structurelles identifiées</li>
+                <li>Outils de gestion des comptes clés</li>
+                <li>Plan d'exécution priorisé</li>
+              </ul>
+            </div>
+          </div>
+          <a class="srv-cta" href="https://calendly.com/better-is-more" onclick="event.stopPropagation()">Réserver un appel découverte →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="srv-fw" onclick="this.classList.toggle('flipped')">
+      <div class="srv-fi">
+        <div class="srv-face srv-front">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div class="srv-tag">Diagnostic</div>
+          <p class="srv-title">Diagnostic Performance<br>Commerciale</p>
+          <p class="srv-tagline"><em>Augmentez la performance<br>sans recruter.</em></p>
+          <span class="srv-hint"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg>Survoler / toucher pour découvrir</span>
+        </div>
+        <div class="srv-face srv-back">
+          <div class="srv-back-inner">
+            <div class="srv-col">
+              <p class="srv-col-title">Ce que nous diagnostiquons</p>
+              <ul class="srv-list">
+                <li>Potentiel interne et externe évalué</li>
+                <li>Quick wins activés, corrections planifiées</li>
+                <li>Plan d'exécution priorisé livré</li>
+                <li>Amélioration du taux de conversion</li>
+              </ul>
+            </div>
+            <div class="srv-col">
+              <p class="srv-col-title">Ce que vous recevez</p>
+              <ul class="srv-list">
+                <li>Quick wins à fort ROI actionnables</li>
+                <li>Améliorations structurelles identifiées</li>
+                <li>Outils ciblés pour votre équipe</li>
+                <li>Plan d'exécution priorisé</li>
+              </ul>
+            </div>
+          </div>
+          <a class="srv-cta" href="https://calendly.com/better-is-more" onclick="event.stopPropagation()">Réserver un appel découverte →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="srv-fw" onclick="this.classList.toggle('flipped')">
+      <div class="srv-fi">
+        <div class="srv-face srv-front">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <div class="srv-tag">Diagnostic</div>
+          <p class="srv-title">Diagnostic<br>CRM</p>
+          <p class="srv-tagline"><em>Votre CRM devrait piloter<br>votre business. Est-ce le cas ?</em></p>
+          <span class="srv-hint"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg>Survoler / toucher pour découvrir</span>
+        </div>
+        <div class="srv-face srv-back">
+          <div class="srv-back-inner">
+            <div class="srv-col">
+              <p class="srv-col-title">Ce que nous diagnostiquons</p>
+              <ul class="srv-list">
+                <li>Lacunes d'adoption diagnostiquées</li>
+                <li>ROI de la plateforme débloqué</li>
+                <li>Du COMEX au terrain : alignés</li>
+                <li>Business rendu visible et prédictible</li>
+              </ul>
+            </div>
+            <div class="srv-col">
+              <p class="srv-col-title">Ce que vous recevez</p>
+              <ul class="srv-list">
+                <li>Quick wins à fort ROI actionnables</li>
+                <li>Améliorations structurelles identifiées</li>
+                <li>Framework d'adoption et outils livrés</li>
+                <li>Plan d'exécution priorisé</li>
+              </ul>
+            </div>
+          </div>
+          <a class="srv-cta" href="https://calendly.com/better-is-more" onclick="event.stopPropagation()">Réserver un appel découverte →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="srv-fw" onclick="this.classList.toggle('flipped')">
+      <div class="srv-fi">
+        <div class="srv-face srv-front">
+          <div class="srv-icon srv-icon-mentoring"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+          <div class="srv-tag srv-tag-mentoring">Mentoring</div>
+          <p class="srv-title">Accélération<br>du Leadership</p>
+          <p class="srv-tagline"><em>Nouveau rôle, nouveau marché,<br>nouvelle pression. Agissez vite.</em></p>
+          <span class="srv-hint"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg>Survoler / toucher pour découvrir</span>
+        </div>
+        <div class="srv-face srv-back">
+          <div class="srv-back-inner">
+            <div class="srv-col">
+              <p class="srv-col-title">Ce que nous adressons</p>
+              <ul class="srv-list">
+                <li>Nouveau manager : résultats rapides</li>
+                <li>Promu récemment : imposez votre posture</li>
+                <li>Manager confirmé : nouveaux marchés</li>
+                <li>Libérez le plein potentiel de l'équipe</li>
+              </ul>
+            </div>
+            <div class="srv-col">
+              <p class="srv-col-title">Ce que vous recevez</p>
+              <ul class="srv-list">
+                <li>Sessions dédiées à votre situation</li>
+                <li>25 ans de pratique commerciale</li>
+                <li>Pas de théorie — du vécu, du terrain</li>
+              </ul>
+            </div>
+          </div>
+          <a class="srv-cta" href="https://calendly.com/better-is-more" onclick="event.stopPropagation()">Réserver un appel découverte →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <section class="exp-sec" id="expertises">
   <p class="stag">Nos expertises</p>
   <p class="exp-h2">7 leviers de croissance</p>
@@ -293,6 +481,7 @@ taux d’occupation, en adhérant à la philosophie selon laquelle <strong style
 <div class="pm"><div class="pm-icon"><svg viewBox="0 0 13 13"><polyline points="2,6.5 5,9.5 11,3"/></svg></div><p class="pm-txt"><strong>People first.</strong> Solutions 100 % personnalisées.</p></div></div>
   </div>
 </div>
+
 <section class="cta-sec" id="contact">
   <p class="cta-pre">Passez à l’action</p>
   <p class="cta-h">Votre prochain levier de croissance est <em>déjà là</em></p>
