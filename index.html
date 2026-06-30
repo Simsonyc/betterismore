@@ -203,7 +203,7 @@ footer{padding:28px 56px}
 @media(max-width:767px){.srv-grid{grid-template-columns:1fr}}
 .srv-fw{perspective:1200px;cursor:none}
 .srv-fi{width:100%;height:380px;position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1)}
-@media(max-width:767px){.srv-fi{height:auto;min-height:340px}}
+@media(max-width:767px){.srv-fi{height:auto;min-height:340px}.srv-fw.flipped .srv-fi{transform:none!important}}
 .srv-fw:hover .srv-fi,.srv-fw.flipped .srv-fi{transform:rotateY(180deg)}
 .srv-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;overflow:hidden}
 @media(max-width:767px){.srv-face{position:relative;inset:auto}}
