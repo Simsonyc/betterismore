@@ -227,6 +227,9 @@ footer{padding:28px 56px}
 .modal-close:hover{color:var(--navy)}
 .modal-iframe{flex:1;border:none;width:100%}
 .modal-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--white);font-size:13px;color:var(--ink3);font-family:var(--fh)}
+
+.blog-img-wrap{position:relative;display:block}
+.blog-stamp{position:absolute;top:8px;right:8px;width:90px;opacity:0.92;pointer-events:none;z-index:2}
 </style>
 </head>
 <body>
@@ -330,9 +333,10 @@ function makeCard(p){
   var date=new Date(p.date).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
   var img=getImg(p);
   var cat=getCatName(p);
+  var stamp='<img class="blog-stamp" src="stamp-fr.png" alt="100% vécu 0% IA">';
   var imgHtml=img
-    ?'<img class="blog-card-img" src="'+img+'" alt="'+title+'" loading="lazy">'
-    :'<div class="blog-card-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>';
+    ?'<div class="blog-img-wrap"><img class="blog-card-img" src="'+img+'" alt="'+title+'" loading="lazy">'+stamp+'</div>'
+    :'<div class="blog-img-wrap"><div class="blog-card-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>'+stamp+'</div>';
   return'<a class="blog-card-page" href="'+p.link+'" target="_blank" rel="noopener">'+imgHtml+'<div class="blog-card-body"><span class="blog-card-cat">'+cat+'</span><p class="blog-card-title">'+title+'</p><p class="blog-card-excerpt">'+excerpt+'</p><span class="blog-card-date">'+date+'</span></div></a>';
 }
 function loadPosts(reset){
